@@ -12,8 +12,6 @@ dependencies:
 
   get: ^4.6.5
   syncfusion_flutter_barcodes: ^22.1.39
-  app_configuration_service:
-    git: https://github.com/niypoo/app_configuration_service.git
   loading_service:
     git: https://github.com/niypoo/loading_service.git
   firestore_service:
