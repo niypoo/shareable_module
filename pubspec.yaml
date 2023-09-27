@@ -17,11 +17,13 @@ dependencies:
   firestore_service:
     git: https://github.com/niypoo/firestore_service.git
   realtime_database_service:
-    git: https://github.com/niypoo/realtime_database_service.git
+    git: 
+      url: git@github.com:niypoo/realtime_database_service.git
   qr_code_scanner_module:
     git: https://github.com/niypoo/qr_code_scanner_module.git
   bottom_sheet_helper:
-    git: https://github.com/niypoo/bottom_sheet_helper.git
+    git: 
+      url: git@github.com:niypoo/bottom_sheet_helper.git
   snackbar_helper:
     git: https://github.com/niypoo/snackbar_helper.git
   helpers:
@@ -31,7 +33,8 @@ dependencies:
   share_helper:
     git: https://github.com/niypoo/share_helper.git
   fly_ui:
-    git: https://github.com/niypoo/fly_ui.git
+    git:
+      url: git@github.com:niypoo/fly_ui.git
   firebase_authentication_service:
     git: https://github.com/niypoo/firebase_authentication_service.git
 
