@@ -23,7 +23,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: aef4dbcf3efc234d29b09c773fa122f7dde5416b
-      url: "https://github.com/niypoo/app_configuration_service.git"
+      url: " git@github.com:niypoo/app_configuration_service.git"
     source: git
     version: "1.0.0+1"
   args:
@@ -64,7 +64,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "078d447fc3c751389c26b22ec7a3ee45049baa81"
-      url: "https://github.com/niypoo/bottom_sheet_helper.git"
+      url: " git@github.com:niypoo/bottom_sheet_helper.git"
     source: git
     version: "1.0.0+1"
   cached_network_image:
@@ -177,7 +177,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "318e41d9feae669e534e235902774751f5964c5a"
-      url: "https://github.com/niypoo/dynamic_links_helper.git"
+      url: " git@github.com:niypoo/dynamic_links_helper.git"
     source: git
     version: "1.0.0+1"
   fake_async:
@@ -234,7 +234,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: ad1b1207e05b3a60a47ec65412cb51c56e041603
-      url: "https://github.com/niypoo/firebase_authentication_service.git"
+      url: " git@github.com:niypoo/firebase_authentication_service.git"
     source: git
     version: "1.0.0+1"
   firebase_core:
@@ -307,7 +307,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "3dfea6a9d819a6e467e285f41f818446b3d70fb7"
-      url: "https://github.com/niypoo/firestore_service.git"
+      url: " git@github.com:niypoo/firestore_service.git"
     source: git
     version: "1.0.0+1"
   flutter:
@@ -395,7 +395,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "9e81f96c02261e72bd03e4ea49afa26859cca847"
-      url: "https://github.com/niypoo/fly_ui.git"
+      url: " git@github.com:niypoo/fly_ui.git"
     source: git
     version: "1.0.0+1"
   get:
@@ -412,7 +412,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "6e51c490b250bb7523cf74cecbb194dace1164fe"
-      url: "https://github.com/niypoo/helpers.git"
+      url: " git@github.com:niypoo/helpers.git"
     source: git
     version: "1.0.0+1"
   http:
@@ -453,7 +453,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: bfc8086cde5bb2e60eaf261497060dada8396f69
-      url: "https://github.com/niypoo/loading_service.git"
+      url: " git@github.com:niypoo/loading_service.git"
     source: git
     version: "1.0.0+1"
   material_color_utilities:
@@ -590,7 +590,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "25befadb8b7ee16e94f02ebd5dd1d2bbad6fa976"
-      url: "https://github.com/niypoo/qr_code_scanner_module.git"
+      url: " git@github.com:niypoo/qr_code_scanner_module.git"
     source: git
     version: "1.0.0+1"
   qr_mobile_vision:
@@ -607,7 +607,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "865ec30e3b506f45c9b1939997792080fffc93f2"
-      url: "https://github.com/niypoo/realtime_database_service.git"
+      url: " git@github.com:niypoo/realtime_database_service.git"
     source: git
     version: "1.0.0+1"
   rxdart:
@@ -624,7 +624,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "4c002e16cd32ea1f4223d54cc16da308181dbd42"
-      url: "https://github.com/niypoo/share_helper.git"
+      url: " git@github.com:niypoo/share_helper.git"
     source: git
     version: "1.0.0+1"
   share_plus:
@@ -654,7 +654,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "17c16de4060a5a5bf873097e99444e386c61142c"
-      url: "https://github.com/niypoo/snackbar_helper.git"
+      url: " git@github.com:niypoo/snackbar_helper.git"
     source: git
     version: "1.0.0+1"
   source_span:
