@@ -13,30 +13,38 @@ dependencies:
   get: ^4.6.5
   syncfusion_flutter_barcodes: ^22.1.39
   loading_service:
-    git: https://github.com/niypoo/loading_service.git
+    git: 
+      url: git@github.com:niypoo/loading_service.git
   firestore_service:
-    git: https://github.com/niypoo/firestore_service.git
+    git: 
+      url: git@github.com:niypoo/firestore_service.git
   realtime_database_service:
     git: 
       url: git@github.com:niypoo/realtime_database_service.git
   qr_code_scanner_module:
-    git: https://github.com/niypoo/qr_code_scanner_module.git
+    git: 
+      url: https://github.com/niypoo/qr_code_scanner_module.git
   bottom_sheet_helper:
     git: 
       url: git@github.com:niypoo/bottom_sheet_helper.git
   snackbar_helper:
-    git: https://github.com/niypoo/snackbar_helper.git
+    git: 
+      url: https://github.com/niypoo/snackbar_helper.git
   helpers:
-    git: https://github.com/niypoo/helpers.git
+    git: 
+      url: https://github.com/niypoo/helpers.git
   dynamic_links_helper:
-    git: https://github.com/niypoo/dynamic_links_helper.git
+    git: 
+      url: https://github.com/niypoo/dynamic_links_helper.git
   share_helper:
-    git: https://github.com/niypoo/share_helper.git
+    git: 
+      url: https://github.com/niypoo/share_helper.git
   fly_ui:
     git:
       url: git@github.com:niypoo/fly_ui.git
   firebase_authentication_service:
-    git: https://github.com/niypoo/firebase_authentication_service.git
+    git: 
+      url: https://github.com/niypoo/firebase_authentication_service.git
 
 dev_dependencies:
   flutter_test:
