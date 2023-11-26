@@ -110,10 +110,10 @@ class ShareableService extends GetxService {
   // do shareable qr-code invitation scanner,
   // then handle the invitation.
   Future<void> invitationQRCodeScanner() async {
-    final Map<String, String>? payload = await QrCodeScannerHelper.show();
-
+    final String? payload = await QrCodeScannerHelper.show();
     if (payload == null) return;
-    await handleInvitation(payload);
+    final Map<String, String> asQuery = QrCodeScannerHelper.splitQueryString(payload);
+    await handleInvitation(asQuery);
   }
 
   // handle shareable invitation link ,

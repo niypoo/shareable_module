@@ -15,7 +15,7 @@ class PortraitView extends StatelessWidget {
       // BODY
       body: const ShareableUsersListWidget(),
       // APP BAR
-      children: [
+      headerSliverBuilder: [
         SliverPersistentHeader(
           delegate: FlySliverAppBar(
             title: 'Sharing'.tr,
