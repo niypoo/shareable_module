@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_authentication_service/models/baseUser.model.dart';
 
-class ShareableHelper {
+class ShareableRelationHelper {
   // TO make a relation
   static Future<void> makeRelation({
     required BaseUser userSharingWith,
