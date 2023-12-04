@@ -4,7 +4,7 @@ import 'package:firebase_authentication_service/models/baseUser.model.dart';
 
 class ShareableHelper {
   // TO make a relation
-  Future<void> makeRelation({
+  static Future<void> makeRelation({
     required BaseUser userSharingWith,
     required String invitationId,
     DatabaseReference? realtimeDatabaseRef,
@@ -33,7 +33,7 @@ class ShareableHelper {
     }
   }
 
-  Future<void> removeRelation({
+  static Future<void> removeRelation({
     required BaseUser userSharingWith,
     required String invitationId,
     DatabaseReference? realtimeDatabaseRef,
