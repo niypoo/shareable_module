@@ -12,7 +12,7 @@ class ShareableRelationHelper {
   }) async {
     // if realtime Database Ref exist
     if (realtimeDatabaseRef != null) {
-      await realtimeDatabaseRef.set(
+      await realtimeDatabaseRef.child('sharings').child(userSharingWith.id).set(
         {
           "status": true,
           'userId': userSharingWith.id,
@@ -38,17 +38,19 @@ class ShareableRelationHelper {
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
   }) async {
+
+    
     // if realtime Database Ref exist
     if (realtimeDatabaseRef != null) {
-      await realtimeDatabaseRef.remove();
+      await realtimeDatabaseRef.child('sharings').child(userSharingWith.id).remove();
     }
 
     // if firestore Database Ref exist
     if (firestoreRef != null) {
       await firestoreRef.set(
         {
-          'sharingIds': FieldValue.arrayRemove([userSharingWith]),
-          'sharingUsers': {userSharingWith: FieldValue.delete()},
+          'sharingIds': FieldValue.arrayRemove([userSharingWith.id]),
+          'sharingUsers': {userSharingWith.id: FieldValue.delete()},
         },
         SetOptions(merge: true),
       );
