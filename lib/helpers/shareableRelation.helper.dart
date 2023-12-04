@@ -35,7 +35,6 @@ class ShareableRelationHelper {
 
   static Future<void> removeRelation({
     required BaseUser userSharingWith,
-    required String invitationId,
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
   }) async {
