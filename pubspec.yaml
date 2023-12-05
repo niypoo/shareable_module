@@ -11,7 +11,7 @@ dependencies:
     sdk: flutter
 
   get: ^4.6.5
-  syncfusion_flutter_barcodes: 23.2.6
+  syncfusion_flutter_barcodes: ^22.1.39
   loading_service:
     git: 
       url: git@github.com:niypoo/loading_service.git
