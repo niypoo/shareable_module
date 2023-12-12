@@ -13,7 +13,7 @@ abstract class Shareable {
 
   List<BaseUser> shareableUsers();
 
-  List<BaseUser> shareableUsersWithoutOwner();
+  List<BaseUser> shareableUsersExcept(dynamic userId);
 
   Future<void> removeShareableUser(BaseUser user);
 }

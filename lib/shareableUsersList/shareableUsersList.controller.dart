@@ -17,7 +17,7 @@ class ShareableUsersListController extends GetxController {
 
   @override
   void onInit() {
-    shareableUsers.value = object.shareableUsersWithoutOwner();
+    shareableUsers.value = object.shareableUsersExcept(_user.id);
     super.onInit();
   }
 
