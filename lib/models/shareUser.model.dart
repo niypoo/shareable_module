@@ -87,7 +87,7 @@ class ShareUser implements BaseUser {
             : DateTime.now().toIso8601String(),
       };
 
-  bool isAllow(BaseUser user, String key) {
+  bool isAllow(String key) {
     if (permission == null) return false;
     if (permission!.isEmpty) return false;
     if (!permission!.containsKey(key)) return false;
