@@ -26,7 +26,7 @@ class ShareUser implements BaseUser {
   @override
   final dynamic type;
 
-  final Map<String, bool>? permission;
+  final Map<String, bool>? permissions;
 
   ShareUser({
     required this.id,
@@ -41,7 +41,7 @@ class ShareUser implements BaseUser {
     this.updatedAt,
     this.type,
     this.primary = false,
-    this.permission,
+    this.permissions,
   });
 
   factory ShareUser.fromData(dynamic data) {
@@ -55,7 +55,7 @@ class ShareUser implements BaseUser {
       fcmToken: data['fcmToken'],
       primary: data['primary'] ?? false,
       type: data['type'],
-      permission: data['permission'],
+      permissions: data['permissions'],
       isAnonymous: data['isAnonymous'] ?? false,
       createdAt: data['createdAt'] != null
           ? DateTime.parse(data['createdAt'])
@@ -78,7 +78,7 @@ class ShareUser implements BaseUser {
         'fcmToken': fcmToken,
         'type': type,
         'isAnonymous': isAnonymous,
-        'permission': permission,
+        'permissions': permissions,
         'createdAt': createdAt != null
             ? createdAt!.toIso8601String()
             : DateTime.now().toIso8601String(),
@@ -87,12 +87,12 @@ class ShareUser implements BaseUser {
             : DateTime.now().toIso8601String(),
       };
 
-  bool isAllow(String key) {
-    if (permission == null) return false;
-    if (permission!.isEmpty) return false;
-    if (!permission!.containsKey(key)) return false;
-    if (permission![key] == null) return false;
-    if (permission![key] == false) return false;
+  bool isAllow(String key, [bool defaultValue = false]) {
+    if (permissions == null) return defaultValue;
+    if (permissions!.isEmpty) return defaultValue;
+    if (!permissions!.containsKey(key)) return defaultValue;
+    if (permissions![key] == null) return defaultValue;
+    if (permissions![key] == false) return false;
 
     return true;
   }
