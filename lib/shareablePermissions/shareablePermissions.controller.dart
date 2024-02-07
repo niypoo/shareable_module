@@ -44,14 +44,21 @@ class ShareablePermissionsController extends GetxController {
   // STOR OPTIONS VALUES IN SERVER
   Future<void> save() async {
     try {
+      
       // change current options in sharing map
       await ShareableService.to.invitationHandler.permissionsUpdate(
         {
-          'read': read.isTrue,
-          'write': write.isTrue,
-          'edit': edit.isTrue,
-          'remove': remove.isTrue,
-          'share': share.isTrue,
+          'sharingUsers': {
+            shareUser.id: {
+              'permissions': {
+                'read': read.isTrue,
+                'write': write.isTrue,
+                'edit': edit.isTrue,
+                'remove': remove.isTrue,
+                'share': share.isTrue,
+              }
+            },
+          }
         },
       );
 
