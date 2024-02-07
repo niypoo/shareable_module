@@ -1,3 +1,5 @@
+import 'package:bottom_sheet_helper/models/actionSheetOption.model.dart';
+import 'package:bottom_sheet_helper/services/actionSheet.helper.dart';
 import 'package:firebase_authentication_service/firebaseAuthentication.service.dart';
 import 'package:firebase_authentication_service/models/baseUser.model.dart';
 import 'package:flutter/widgets.dart';
@@ -7,6 +9,7 @@ import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/routes/route.dart';
 import 'package:shareable_module/shareable.service.dart';
+import 'package:unicons/unicons.dart';
 
 class ShareableUsersListController extends GetxController
     implements HasSearchInput {
@@ -72,12 +75,46 @@ class ShareableUsersListController extends GetxController
     getShareUsersList();
   }
 
+  Future<void> onMoreOptionTap(ShareUser shareUser) async {
+    final String? payload = await ActionSheetHelper.show(options: [
+      ActionSheetOption(
+        title: 'Remove'.tr,
+        value: 'Remove',
+        leading: const Icon(UniconsLine.trash),
+      ),
+      ActionSheetOption(
+        title: 'Permissions'.tr,
+        value: 'Permissions',
+        leading: const Icon(UniconsLine.setting),
+      ),
+    ]);
+
+    if (payload == null) return;
+
+    if (payload == 'Permissions') {
+      toPermission(shareUser);
+    } else if (payload == 'Remove') {
+      removeShareableUser(shareUser);
+    }
+  }
+
   // open permission
   Future<void> toPermission(ShareUser shareUser) async {
     await Get.toNamed(
       ShareableRoutesNames.shareablePermission,
       arguments: shareUser,
     );
+
+    // update data
+    getShareUsersList();
+  }
+
+  // open permission
+  Future<void> removeShareableUser(ShareUser shareUser) async {
+    await ShareableService.to.invitationHandler.removeShareableUser(shareUser);
+
+    // update data
+    getShareUsersList();
   }
 
   // get share users list and update

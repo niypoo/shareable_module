@@ -19,8 +19,6 @@ class ShareablePermissionsController extends GetxController {
 
   @override
   void onInit() {
-    print('shareUser ++ ${shareUser.id}');
-    print('shareUser ++ ${shareUser.permissions}');
     read.value = shareUser.isAllow('read', true);
     write.value = shareUser.isAllow('write', true);
     edit.value = shareUser.isAllow('edit');
@@ -44,10 +42,9 @@ class ShareablePermissionsController extends GetxController {
 
   // STOR OPTIONS VALUES IN SERVER
   Future<void> save() async {
-    print('shareUser.id ${shareUser.id}');
     try {
       // change current options in sharing map
-      await ShareableService.to.invitationHandler.permissionsUpdate(
+      await ShareableService.to.invitationHandler.permissionsShareableUserUpdate(
         {
           'sharingUsers': {
             shareUser.id: {

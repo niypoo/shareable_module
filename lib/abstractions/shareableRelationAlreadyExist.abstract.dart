@@ -13,7 +13,8 @@ abstract class ShareableServiceInvitationHandler {
     String invitationId,
   );
 
-  Future<void> permissionsUpdate(Map<String, dynamic> permissions);
+  Future<void> permissionsShareableUserUpdate(Map<String, dynamic> permissions);
+  Future<void> removeShareableUser(ShareUser shareUser);
 
   Shareable getShareableObject();
   List<ShareUser> getShareUsers();
