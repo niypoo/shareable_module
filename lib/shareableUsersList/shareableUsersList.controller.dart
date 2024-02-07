@@ -69,6 +69,8 @@ class ShareableUsersListController extends GetxController
       ShareableRoutesNames.shareablePermission,
       arguments: shareUser,
     );
+
+    sharingUsers = ShareableService.to.invitationHandler.getShareUsers();
     update();
   }
 }
