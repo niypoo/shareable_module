@@ -4,6 +4,8 @@ class ShareUser implements BaseUser {
   @override
   final String id;
   @override
+  final String uid;
+  @override
   final String? displayName;
   @override
   final String? email;
@@ -30,6 +32,7 @@ class ShareUser implements BaseUser {
 
   ShareUser({
     required this.id,
+    required this.uid,
     required this.isAnonymous,
     this.email,
     this.photoUrl,
@@ -47,6 +50,7 @@ class ShareUser implements BaseUser {
   factory ShareUser.fromData(dynamic data) {
     return ShareUser(
       id: data['id'],
+      uid: data['uid'],
       displayName: data['displayName'],
       email: data['email'],
       photoUrl: data['photoUrl'],
@@ -69,6 +73,7 @@ class ShareUser implements BaseUser {
   @override
   Map<String, dynamic> toData() => {
         "id": id,
+        "uid": uid,
         'displayName': displayName,
         'email': email,
         'photoUrl': photoUrl,
