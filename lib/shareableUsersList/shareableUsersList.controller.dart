@@ -20,14 +20,19 @@ class ShareableUsersListController extends GetxController
 
   List<ShareUser> sharingUsers = [];
 
+  bool isCurrentUserOwner = false;
+
   @override
   void onInit() {
+    isCurrentUserOwner = object.uid == _user.id;
     sharingUsers = object.shareableUsers();
+    print('isCurrentUserOwner $isCurrentUserOwner');
+    print('_user ${_user.id}');
+    print('object ${object.uid}');
     super.onInit();
   }
 
-  bool isOwner() => object.uid == _user.id;
-  bool isOwnerById(String uid) => object.uid == uid;
+  bool isOwner(String uid) => object.uid == uid;
 
   // search text controller
   @override
