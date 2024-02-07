@@ -26,7 +26,7 @@ class ShareUser implements BaseUser {
   @override
   final dynamic type;
 
-  final Map<String, bool>? permissions;
+  final Map<String, dynamic>? permissions;
 
   ShareUser({
     required this.id,
