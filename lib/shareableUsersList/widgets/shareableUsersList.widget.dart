@@ -20,21 +20,24 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
         Expanded(
           child: SingleChildScrollView(
             child: Column(
-              children: controller.shareableUsers
+              children: controller.sharingUsers
                   .map(
                     (user) => FlyListTile(
                       leading: FlyImage(
-                        height: 40,
-                        width: 40,
+                        height: 80,
+                        width: 60,
                         url: user.photoUrl,
                         placeholder: 'assets/images/avatars/0.png',
                       ),
                       title: user.getDisplayName,
+                      subtitle:
+                          controller.isOwner(user.id) ? 'Owner' : 'Sharing',
                       value: controller.isOwner(user.id)
                           ? IconButton(
                               icon: const Icon(UniconsLine.trash_alt),
                               color: Get.theme.primaryColor,
-                              onPressed: () {})
+                              onPressed: () => controller.toPermission(user),
+                            )
                           : const SizedBox.shrink(),
                     ),
                   )

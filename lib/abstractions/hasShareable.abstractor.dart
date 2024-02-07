@@ -1,4 +1,4 @@
-import 'package:firebase_authentication_service/models/baseUser.model.dart';
+import 'package:shareable_module/models/shareUser.model.dart';
 
 abstract class Shareable {
   final String id;
@@ -11,9 +11,9 @@ abstract class Shareable {
     required this.displayName,
   });
 
-  List<BaseUser> shareableUsers();
+  List<ShareUser> shareableUsers();
 
-  List<BaseUser> shareableUsersExcept(dynamic userId);
+  List<ShareUser> shareableUsersExcept(dynamic userId);
 
-  Future<void> removeShareableUser(BaseUser user);
+  Future<void> removeShareableUser(ShareUser user);
 }

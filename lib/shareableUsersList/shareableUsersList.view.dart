@@ -10,8 +10,8 @@ class ShareableUsersListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const FlyScaffold(
-      child: FlyResponsiveView(
+    return FlyScaffold.padding(
+      child: const FlyResponsiveView(
         child: PortraitView(),
       ),
     );

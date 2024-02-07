@@ -6,7 +6,6 @@ import 'package:bottom_sheet_helper/services/conformationSheet.helper.dart';
 import 'package:bottom_sheet_helper/services/customBottomSheet.helper.dart';
 import 'package:bottom_sheet_helper/services/messageBottomSheet.helper.dart';
 import 'package:dynamic_links_helper/dynamicLinks.helper.dart';
-import 'package:firebase_authentication_service/models/baseUser.model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:helpers/random.helper.dart';
@@ -22,6 +21,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shareable_module/models/invitation.model.dart';
 import 'package:shareable_module/models/invitationHandleStatus.model.dart';
+import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/widgets/qrcode.widget.dart';
 import 'package:snackbar_helper/snackbar.service.dart';
 import 'package:unicons/unicons.dart';
@@ -311,7 +311,7 @@ class ShareableService extends GetxService {
   // REMOVE USER SHARING
   Future<void> remove({
     required Shareable object,
-    required BaseUser removeUser,
+    required ShareUser removeUser,
   }) async {
     // confirm
     final bool? confirm = await ConformationSheetHelper.show(
@@ -348,7 +348,7 @@ class ShareableService extends GetxService {
   // remove Medical Case
   Future<void> leave({
     required Shareable object,
-    required BaseUser removeUser,
+    required ShareUser removeUser,
   }) async {
     // confirm user first
     final bool? confirm = await AdvanceConformationSheetHelper.show(

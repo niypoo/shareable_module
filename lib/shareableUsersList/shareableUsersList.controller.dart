@@ -1,9 +1,14 @@
 import 'package:firebase_authentication_service/firebaseAuthentication.service.dart';
 import 'package:firebase_authentication_service/models/baseUser.model.dart';
+import 'package:flutter/widgets.dart';
+import 'package:fly_ui/modules/searchInput/abstracts/hasSearchInput.abstract.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
+import 'package:shareable_module/models/shareUser.model.dart';
+import 'package:shareable_module/routes/route.dart';
 
-class ShareableUsersListController extends GetxController {
+class ShareableUsersListController extends GetxController
+    implements HasSearchInput {
   // static
   static ShareableUsersListController get to => Get.find();
 
@@ -13,13 +18,43 @@ class ShareableUsersListController extends GetxController {
   // properties
   final Shareable object = Get.arguments ?? [];
 
-  final RxList<BaseUser> shareableUsers = RxList<BaseUser>([]);
+  List<ShareUser> sharingUsers = [];
 
   @override
   void onInit() {
-    shareableUsers.value = object.shareableUsersExcept(_user.id);
+    sharingUsers = object.shareableUsers();
     super.onInit();
   }
 
   bool isOwner(String uid) => _user.id == uid;
+
+  // search text controller
+  @override
+  TextEditingController searchTextController = TextEditingController();
+
+  // search input is empty
+  @override
+  RxBool searchIsEmpty = true.obs;
+
+  @override
+  FocusNode searchFocusNode = FocusNode();
+
+  @override
+  void onFieldSubmitted(String value) {
+    sharingUsers = sharingUsers
+        .where((element) => element.getDisplayName == value)
+        .toList();
+    update();
+  }
+
+  @override
+  void onSearchFieldClear() {
+    sharingUsers = object.shareableUsers();
+    searchTextController.clear();
+    update();
+  }
+
+  Future<void> toPermission(ShareUser shareUser) async =>
+      await Get.toNamed(ShareableRoutesNames.shareablePermission,
+          arguments: shareUser);
 }

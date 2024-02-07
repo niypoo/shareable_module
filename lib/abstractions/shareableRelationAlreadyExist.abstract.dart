@@ -10,4 +10,6 @@ abstract class ShareableServiceInvitationHandler {
     String objectId,
     String invitationId,
   );
+
+  Future<void> permissionsUpdate(Map<String, bool>? permissions);
 }
