@@ -19,29 +19,34 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
         // Body
         Expanded(
           child: SingleChildScrollView(
-            child: Column(
-              children: controller.sharingUsers
-                  .map(
-                    (user) => FlyListTile(
-                      leading: FlyImage(
-                        height: 100,
-                        width: 50,
-                        url: user.photoUrl,
-                        placeholder: 'assets/images/avatars/0.png',
-                      ),
-                      title: user.getDisplayName,
-                      subtitle:
-                          controller.isOwner(user.id) ? 'Owner' : 'Sharing',
-                      value: controller.isCurrentUserOwner
-                          ? IconButton(
-                              icon: const Icon(UniconsLine.trash_alt),
-                              color: Get.theme.primaryColor,
-                              onPressed: () => controller.toPermission(user),
-                            )
-                          : const SizedBox.shrink(),
-                    ),
-                  )
-                  .toList(),
+            child: GetBuilder<ShareableUsersListController>(
+              builder: (controller) {
+                return Column(
+                  children: controller.sharingUsers
+                      .map(
+                        (user) => FlyListTile(
+                          leading: FlyImage(
+                            height: 100,
+                            width: 50,
+                            url: user.photoUrl,
+                            placeholder: 'assets/images/avatars/0.png',
+                          ),
+                          title: user.getDisplayName,
+                          subtitle:
+                              controller.isOwner(user.id) ? 'Owner' : 'Sharing',
+                          value: controller.isCurrentUserOwner
+                              ? IconButton(
+                                  icon: const Icon(UniconsLine.trash_alt),
+                                  color: Get.theme.primaryColor,
+                                  onPressed: () =>
+                                      controller.toPermission(user),
+                                )
+                              : const SizedBox.shrink(),
+                        ),
+                      )
+                      .toList(),
+                );
+              },
             ),
           ),
         ),
