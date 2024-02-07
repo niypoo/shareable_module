@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/routes/route.dart';
+import 'package:shareable_module/shareable.service.dart';
 
 class ShareableUsersListController extends GetxController
     implements HasSearchInput {
@@ -16,27 +17,22 @@ class ShareableUsersListController extends GetxController
   final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
 
   // properties
-  dynamic object = Get.arguments;
+  final Shareable object =
+      ShareableService.to.invitationHandler.getShareableObject();
 
-  // properties
-  final Rx<dynamic> arguments = Get.arguments ?? [];
-
-  List<ShareUser> sharingUsers = [];
+  // get share users list
+  List<ShareUser> sharingUsers =
+      ShareableService.to.invitationHandler.getShareUsers();
 
   bool isCurrentUserOwner = false;
 
   @override
   void onInit() {
-    arguments.listen((p0) {
-      object = p0;
-      update();
-    });
-
     isCurrentUserOwner = object.uid == _user.id;
     sharingUsers = object.shareableUsers();
     print('isCurrentUserOwner $isCurrentUserOwner');
     print('_user ${_user.id}');
-    print('object ${object.id} ~ ${object.displayName} ~ ${object.uid}');
+    print('object ${object.id} ` ${object.uid}');
     super.onInit();
   }
 
@@ -63,12 +59,16 @@ class ShareableUsersListController extends GetxController
 
   @override
   void onSearchFieldClear() {
-    sharingUsers = object.shareableUsers();
+    sharingUsers = ShareableService.to.invitationHandler.getShareUsers();
     searchTextController.clear();
     update();
   }
 
-  Future<void> toPermission(ShareUser shareUser) async =>
-      await Get.toNamed(ShareableRoutesNames.shareablePermission,
-          arguments: shareUser);
+  Future<void> toPermission(ShareUser shareUser) async {
+    await Get.toNamed(
+      ShareableRoutesNames.shareablePermission,
+      arguments: shareUser,
+    );
+    update();
+  }
 }
