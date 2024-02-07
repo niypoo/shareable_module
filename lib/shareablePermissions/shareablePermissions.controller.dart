@@ -19,6 +19,8 @@ class ShareablePermissionsController extends GetxController {
 
   @override
   void onInit() {
+    print('shareUser ++ ${shareUser.id}');
+    print('shareUser ++ ${shareUser.permissions}');
     read.value = shareUser.isAllow('read', true);
     write.value = shareUser.isAllow('write', true);
     edit.value = shareUser.isAllow('edit');
@@ -29,8 +31,6 @@ class ShareablePermissionsController extends GetxController {
 
   @override
   void onReady() {
-    print('shareUser ${shareUser.id}');
-    print('shareUser ${shareUser.permissions}');
     super.onReady();
   }
 
