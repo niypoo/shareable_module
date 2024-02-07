@@ -16,7 +16,7 @@ class ShareableUsersListController extends GetxController
   final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
 
   // properties
-  Shareable object = Get.arguments;
+  dynamic object = Get.arguments;
 
   // properties
   final Rx<dynamic> arguments = Get.arguments ?? [];
