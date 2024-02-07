@@ -24,15 +24,15 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                   .map(
                     (user) => FlyListTile(
                       leading: FlyImage(
-                        height: 80,
+                        height: 100,
                         width: 60,
                         url: user.photoUrl,
                         placeholder: 'assets/images/avatars/0.png',
                       ),
                       title: user.getDisplayName,
                       subtitle:
-                          controller.isOwner(user.id) ? 'Owner' : 'Sharing',
-                      value: controller.isOwner(user.id)
+                          controller.isOwnerById(user.id) ? 'Owner' : 'Sharing',
+                      value: controller.isOwner()
                           ? IconButton(
                               icon: const Icon(UniconsLine.trash_alt),
                               color: Get.theme.primaryColor,
