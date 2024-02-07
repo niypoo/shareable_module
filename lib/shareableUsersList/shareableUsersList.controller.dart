@@ -21,18 +21,26 @@ class ShareableUsersListController extends GetxController
       ShareableService.to.invitationHandler.getShareableObject();
 
   // get share users list
-  List<ShareUser> sharingUsers =
-      ShareableService.to.invitationHandler.getShareUsers();
+  List<ShareUser> sharingUsers = [];
 
   bool isCurrentUserOwner = false;
 
   @override
   void onInit() {
     isCurrentUserOwner = object.uid == _user.id;
-    sharingUsers = object.shareableUsers();
-    print('isCurrentUserOwner $isCurrentUserOwner');
-    print('_user ${_user.id}');
-    print('object ${object.id} ` ${object.uid}');
+    getShareUsersList();
+
+    // Handle Search input actions
+    searchTextController.addListener(
+      () {
+        // Value os search input
+        searchIsEmpty.value = searchTextController.text.trim().isEmpty;
+      },
+    );
+
+    // listen to search input focus
+    searchFocusNode.addListener(() {});
+
     super.onInit();
   }
 
@@ -52,24 +60,27 @@ class ShareableUsersListController extends GetxController
   @override
   void onFieldSubmitted(String value) {
     sharingUsers = sharingUsers
-        .where((element) => element.getDisplayName == value)
+        .where((element) => element.getDisplayName.contains(value))
         .toList();
     update();
   }
 
   @override
   void onSearchFieldClear() {
-    sharingUsers = ShareableService.to.invitationHandler.getShareUsers();
     searchTextController.clear();
-    update();
+    getShareUsersList();
   }
 
+  // open permission
   Future<void> toPermission(ShareUser shareUser) async {
     await Get.toNamed(
       ShareableRoutesNames.shareablePermission,
       arguments: shareUser,
     );
+  }
 
+  // get share users list and update
+  getShareUsersList() {
     sharingUsers = ShareableService.to.invitationHandler.getShareUsers();
     update();
   }
