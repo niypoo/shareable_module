@@ -59,12 +59,11 @@ class ShareableUsersListController extends GetxController
 
   @override
   void onFieldSubmitted(String value) {
-    sharingUsers = sharingUsers
-        .where((user) => user.getDisplayName.contains(value))
-        .toList();
-
-    print('value $value');
-    print('sharingUsers ${sharingUsers.length}');
+    sharingUsers = sharingUsers.where((user) {
+      print(
+          '${user.getDisplayName} $value  ${user.getDisplayName.contains(value)}');
+      return user.getDisplayName.contains(value);
+    }).toList();
     update();
   }
 
