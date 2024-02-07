@@ -54,7 +54,7 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
         // Button
         FlyElevatedButton.primary(
           onPressed: () =>
-              ShareableService.to.createNewInvitation(controller.object),
+              ShareableService.to.createNewInvitation(controller.object!),
           title: "Family Invitation".tr,
         ),
       ],

@@ -16,7 +16,10 @@ class ShareableUsersListController extends GetxController
   final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
 
   // properties
-  final Shareable object = Get.arguments ?? [];
+  Shareable? object;
+
+  // properties
+  final Rx<dynamic> arguments = Get.arguments ?? [];
 
   List<ShareUser> sharingUsers = [];
 
@@ -24,15 +27,20 @@ class ShareableUsersListController extends GetxController
 
   @override
   void onInit() {
-    isCurrentUserOwner = object.uid == _user.id;
-    sharingUsers = object.shareableUsers();
+    arguments.listen((p0) {
+      object = p0!;
+      update();
+    });
+
+    isCurrentUserOwner = object!.uid == _user.id;
+    sharingUsers = object!.shareableUsers();
     print('isCurrentUserOwner $isCurrentUserOwner');
     print('_user ${_user.id}');
-    print('object ${object.id} ~ ${object.displayName} ~ ${object.uid}');
+    print('object ${object!.id} ~ ${object!.displayName} ~ ${object!.uid}');
     super.onInit();
   }
 
-  bool isOwner(String uid) => object.uid == uid;
+  bool isOwner(String uid) => object!.uid == uid;
 
   // search text controller
   @override
@@ -55,7 +63,7 @@ class ShareableUsersListController extends GetxController
 
   @override
   void onSearchFieldClear() {
-    sharingUsers = object.shareableUsers();
+    sharingUsers = object!.shareableUsers();
     searchTextController.clear();
     update();
   }
