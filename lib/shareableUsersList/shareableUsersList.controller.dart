@@ -81,11 +81,13 @@ class ShareableUsersListController extends GetxController
       ActionSheetOption(
         title: 'Remove'.tr,
         value: 'Remove',
+        subtitle: 'Remove this user from share list.'.tr,
         leading: const Icon(UniconsLine.trash),
       ),
       ActionSheetOption(
         title: 'Permissions'.tr,
         value: 'Permissions',
+        subtitle: 'Manage this user permissions.'.tr,
         leading: const Icon(UniconsLine.setting),
       ),
     ]);
