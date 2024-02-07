@@ -1,11 +1,15 @@
 import 'package:bottom_sheet_helper/models/actionSheetOption.model.dart';
 import 'package:bottom_sheet_helper/services/actionSheet.helper.dart';
+import 'package:bottom_sheet_helper/services/advanceConformationSheet.helper.dart';
 import 'package:firebase_authentication_service/firebaseAuthentication.service.dart';
 import 'package:firebase_authentication_service/models/baseUser.model.dart';
+import 'package:firestore_service/firestore.util.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fly_ui/modules/searchInput/abstracts/hasSearchInput.abstract.dart';
 import 'package:get/get.dart';
+import 'package:realtime_database_service/realtimeDatabase.service.dart';
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
+import 'package:shareable_module/helpers/shareableRelation.helper.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/routes/route.dart';
 import 'package:shareable_module/shareable.service.dart';
@@ -111,8 +115,28 @@ class ShareableUsersListController extends GetxController
 
   // open permission
   Future<void> removeShareableUser(ShareUser shareUser) async {
-    await ShareableService.to.invitationHandler.removeShareableUser(shareUser);
+// confirm user first
+    final bool? confirm = await AdvanceConformationSheetHelper.show(
+      title: 'Confirmation !'.tr,
+      subTitle: 'Do you want remove share user ?'.trParams(
+        {
+          '_ame': object.displayName,
+        },
+      ),
+      icon: UniconsLine.trash,
+    );
 
+    //skip
+    if (confirm == null || !confirm) return;
+
+    // remove diabetic shareable user
+    await ShareableRelationHelper.removeRelation(
+      userSharingWith: shareUser,
+      realtimeDatabaseRef:
+          RealtimeDatabaseService.to.instance.ref('logs').child(object.id),
+      firestoreRef:
+          FirestoreService.to.instance.collection('diabetics').doc(object.id),
+    );
     // update data
     getShareUsersList();
   }

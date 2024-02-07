@@ -14,7 +14,6 @@ abstract class ShareableServiceInvitationHandler {
   );
 
   Future<void> permissionsShareableUserUpdate(Map<String, dynamic> permissions);
-  Future<void> removeShareableUser(ShareUser shareUser);
 
   Shareable getShareableObject();
   List<ShareUser> getShareUsers();
