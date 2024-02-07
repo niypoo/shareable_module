@@ -11,5 +11,5 @@ abstract class ShareableServiceInvitationHandler {
     String invitationId,
   );
 
-  Future<void> permissionsUpdate(Map<String, dynamic>? permissions);
+  Future<void> permissionsUpdate(Map<String, dynamic> permissions);
 }
