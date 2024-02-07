@@ -31,8 +31,8 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                       ),
                       title: user.getDisplayName,
                       subtitle:
-                          controller.isOwner(user.uid) ? 'Owner' : 'Sharing',
-                      value: controller.isOwner(user.uid)
+                          controller.isOwner(user.id) ? 'Owner' : 'Sharing',
+                      value: controller.isOwner(user.id)
                           ? IconButton(
                               icon: const Icon(UniconsLine.trash_alt),
                               color: Get.theme.primaryColor,

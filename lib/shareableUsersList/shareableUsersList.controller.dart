@@ -1,5 +1,3 @@
-import 'package:firebase_authentication_service/firebaseAuthentication.service.dart';
-import 'package:firebase_authentication_service/models/baseUser.model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fly_ui/modules/searchInput/abstracts/hasSearchInput.abstract.dart';
 import 'package:get/get.dart';
@@ -12,8 +10,8 @@ class ShareableUsersListController extends GetxController
   // static
   static ShareableUsersListController get to => Get.find();
 
-  // current user
-  final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
+  // // current user
+  // final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
 
   // properties
   final Shareable object = Get.arguments ?? [];
@@ -26,7 +24,7 @@ class ShareableUsersListController extends GetxController
     super.onInit();
   }
 
-  bool isOwner(String uid) => _user.id == uid;
+  bool isOwner(String id) => object.uid == id;
 
   // search text controller
   @override
