@@ -40,7 +40,7 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                                   icon: const Icon(UniconsLine.ellipsis_v),
                                   color: Get.theme.primaryColor,
                                   onPressed: () =>
-                                      controller.toPermission(user),
+                                      controller.onMoreOptionTap(user),
                                 )
                               : const SizedBox.shrink(),
                         ),
