@@ -25,7 +25,7 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                     (user) => FlyListTile(
                       leading: FlyImage(
                         height: 100,
-                        width: 60,
+                        width: 50,
                         url: user.photoUrl,
                         placeholder: 'assets/images/avatars/0.png',
                       ),

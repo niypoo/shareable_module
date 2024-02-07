@@ -28,7 +28,7 @@ class ShareableUsersListController extends GetxController
     sharingUsers = object.shareableUsers();
     print('isCurrentUserOwner $isCurrentUserOwner');
     print('_user ${_user.id}');
-    print('object ${object.uid}');
+    print('object ${object.id} ~ ${object.displayName} ~ ${object.uid}');
     super.onInit();
   }
 
