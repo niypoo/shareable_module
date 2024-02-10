@@ -25,9 +25,13 @@ class ShareablePermissionsController extends GetxController {
   @override
   void onInit() {
     // assign exist permssion or default
-    permissions = shareUser.permissions ??
-        (shareablePermissions.map((e) => {e.key: e.defaultValue})
-            as Map<String, dynamic>);
+    if (shareUser.permissions == null) {
+      for (var permission in shareablePermissions) {
+        permissions[permission.key] = permission.defaultValue;
+      }
+    } else {
+      permissions = shareUser.permissions!;
+    }
 
     super.onInit();
   }
