@@ -71,7 +71,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "1539419b2726ebb780f1d5983c0face9bf85a343"
+      resolved-ref: "4afb91e01b017512267e9e7f8ec973c3e5ce7b9d"
       url: "git@github.com:niypoo/bottom_sheet_helper.git"
     source: git
     version: "1.0.0+1"
@@ -410,7 +410,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "636c8df88927c388a09aad4d79a88c1ce3c4a63d"
+      resolved-ref: "43536c957e38cec0a6d09a7874bfbb2ea8adda52"
       url: "git@github.com:niypoo/fly_ui.git"
     source: git
     version: "1.0.0+1"

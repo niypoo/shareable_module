@@ -18,15 +18,14 @@ class PermissionsList extends StatelessWidget {
     return Column(
       children: [
         ...controller.shareablePermissions
-            .map((e) => Obx(() {
-                  return FlySwitchOption(
-                    value: e.defaultValue,
-                    title: e.name.tr,
-                    subtitle: e.description.tr,
-                    onChange: (bool v) =>
-                        controller.onPermissionChange(v, true),
-                  );
-                }))
+            .map(
+              (e) => FlySwitchOption(
+                value: e.defaultValue,
+                title: e.name.tr,
+                subtitle: e.description.tr,
+                onChange: (bool v) => controller.onPermissionChange(v, true),
+              ),
+            )
             .toList(),
         SizedBox(height: 30.sp),
         FlyElevatedButton.primary(
