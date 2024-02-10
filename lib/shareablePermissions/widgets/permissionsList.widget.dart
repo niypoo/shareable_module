@@ -20,7 +20,7 @@ class PermissionsList extends GetView<ShareablePermissionsController> {
             children: controller.shareablePermissions
                 .map(
                   (e) => FlySwitchOption(
-                    value: e.defaultValue,
+                    value: controller.permissions[e.key] ?? e.defaultValue,
                     title: e.name.tr,
                     subtitle: e.description.tr,
                     onChange: (bool v) =>

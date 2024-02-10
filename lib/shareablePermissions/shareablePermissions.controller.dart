@@ -48,6 +48,7 @@ class ShareablePermissionsController extends GetxController {
 
   // ON OPTIONS CHANGES
   onPermissionChange(bool value, String key) {
+    print('key $key , $value');
     permissions[key] = value;
     update();
   }
