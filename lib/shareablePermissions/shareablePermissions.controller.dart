@@ -20,19 +20,15 @@ class ShareablePermissionsController extends GetxController {
   List<ShareablePermission> shareablePermissions =
       ShareableService.to.invitationHandler.shareablePermissions;
 
-  // final RxBool read = false.obs;
-  // final RxBool write = false.obs;
-  // final RxBool edit = false.obs;
-  // final RxBool remove = false.obs;
-  // final RxBool share = false.obs;
+  Map<String, dynamic> permissions = {};
 
   @override
   void onInit() {
-    // read.value = shareUser.isAllow('read', true);
-    // write.value = shareUser.isAllow('write', true);
-    // edit.value = shareUser.isAllow('edit');
-    // remove.value = shareUser.isAllow('remove');
-    // share.value = shareUser.isAllow('share');
+    // assign exist permssion or default
+    permissions = shareUser.permissions ??
+        (shareablePermissions.map((e) => {e.key: e.defaultValue})
+            as Map<String, dynamic>);
+
     super.onInit();
   }
 
@@ -47,20 +43,17 @@ class ShareablePermissionsController extends GetxController {
   }
 
   // ON OPTIONS CHANGES
-  onPermissionChange(bool value, bool permission) => permission = value;
+  onPermissionChange(bool value, String key) {
+    permissions[key] = value;
+    update();
+  }
 
   // STOR OPTIONS VALUES IN SERVER
   Future<void> save() async {
     try {
       // change current options in sharing map
       await object.updateShareablePermssions(
-        {
-          'read': true,
-          'write': true,
-          'edit': true,
-          'remove': true,
-          'share': true,
-        },
+        permissions,
         shareUser,
       );
 

@@ -14,9 +14,11 @@ class ShareablePermissions extends GetView<ShareablePermissionsController> {
   @override
   Widget build(BuildContext context) {
     return FlyScaffold.padding(
-      appBar: FlyAppBar(title: 'Permissions'.tr,),
-      child: FlyResponsiveView(
-        child: PermissionsList(controller: controller),
+      appBar: FlyAppBar(
+        title: 'Permissions'.tr,
+      ),
+      child: const FlyResponsiveView(
+        child: PermissionsList(),
       ),
     );
   }
