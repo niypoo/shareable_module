@@ -60,7 +60,7 @@ class ShareablePermissionsController extends GetxController {
       print('shareUser ${shareUser.id}');
       print('permissions $permissions');
       // change current options in sharing map
-      await object.updateShareablePermssions(
+      await object.updateUserPermissions(
         permissions,
         shareUser,
       );

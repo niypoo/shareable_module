@@ -330,7 +330,7 @@ class ShareableService extends GetxService {
     LoadingService.to.on();
 
     //delete Sharing user Medical Case
-    await object.removeShareableUser(removeUser);
+    await object.removeFromShareableUsers(removeUser);
 
     // LOADING
     LoadingService.to.off();
@@ -373,7 +373,7 @@ class ShareableService extends GetxService {
 
     // Call Delete function from server
     //delete Sharing user Medical Case
-    await object.removeShareableUser(removeUser);
+    await object.removeFromShareableUsers(removeUser);
 
     // loading
     LoadingService.to.off();

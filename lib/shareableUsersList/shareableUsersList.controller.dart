@@ -129,8 +129,8 @@ class ShareableUsersListController extends GetxController
     if (confirm == null || !confirm) return;
 
     // remove diabetic shareable user
-    await object.removeShareableUser(shareUser);
-    
+    await object.removeFromShareableUsers(shareUser);
+
     // update data
     getShareUsersList();
   }

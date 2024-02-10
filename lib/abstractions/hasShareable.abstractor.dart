@@ -11,11 +11,18 @@ abstract class Shareable {
     required this.displayName,
   });
 
-  List<ShareUser> shareableUsers();
+  // Get sharable users list
+  List<ShareUser> shareableUsers([List<String> except]);
 
-  List<ShareUser> shareableUsersExcept(dynamic userId);
+  // Remove sharable user from list
+  Future<void> removeFromShareableUsers(ShareUser user);
 
-  Future<void> removeShareableUser(ShareUser user);
+  // update user permissions from sharable user list
+  Future<void> updateUserPermissions(
+    Map<String, dynamic> permissions,
+    ShareUser user,
+  );
 
-  Future<void> updateShareablePermssions(Map<String, dynamic> permissions, ShareUser user,);
+  // check
+  ShareUser userFromShareable();
 }
