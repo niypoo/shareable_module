@@ -1,5 +1,6 @@
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/models/invitationHandleStatus.model.dart';
+import 'package:shareable_module/models/sharePermission.model.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 
 abstract class ShareableServiceInvitationHandler {
@@ -13,9 +14,40 @@ abstract class ShareableServiceInvitationHandler {
     String invitationId,
   );
 
-  Future<void> permissionsShareableUserUpdate(Map<String, dynamic> permissions);
-  Future<void> removeShareableUser(ShareUser shareUser);
-
   Shareable getShareableObject();
+
   List<ShareUser> getShareUsers();
+
+  List<ShareablePermission> defaultShareablePermissions = [
+    ShareablePermission(
+        key: 'read',
+        name: 'Read',
+        description: 'Who has permission to read data.',
+        defaultValue: true),
+    ShareablePermission(
+        key: 'write',
+        name: 'Write',
+        description: 'Who has permission to write data.',
+        defaultValue: true),
+    ShareablePermission(
+        key: 'edit',
+        name: 'Edit',
+        description: 'Who has permission to edit data.',
+        defaultValue: false),
+    ShareablePermission(
+        key: 'remove',
+        name: 'Remove',
+        description: 'Who has permission to remove data.',
+        defaultValue: false),
+    ShareablePermission(
+        key: 'share',
+        name: 'Share',
+        description: 'Who has permission to share data.',
+        defaultValue: false),
+  ];
+
+  List<ShareablePermission> extraPermissions();
+
+  List<ShareablePermission> get getShareablePermissions =>
+      [...defaultShareablePermissions, ...extraPermissions()];
 }

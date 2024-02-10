@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/models/sharePermission.model.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/shareable.service.dart';
@@ -12,10 +13,12 @@ class ShareablePermissionsController extends GetxController {
   final ShareUser shareUser = Get.arguments;
 
   // properties
-  List<ShareablePermission> shareablePermissions = ShareableService
-      .to.invitationHandler
-      .getShareableObject()
-      .shareablePermissions;
+  final Shareable object =
+      ShareableService.to.invitationHandler.getShareableObject();
+
+  // properties
+  List<ShareablePermission> shareablePermissions =
+      ShareableService.to.invitationHandler.getShareablePermissions;
 
   // final RxBool read = false.obs;
   // final RxBool write = false.obs;
@@ -25,7 +28,6 @@ class ShareablePermissionsController extends GetxController {
 
   @override
   void onInit() {
-    
     // read.value = shareUser.isAllow('read', true);
     // write.value = shareUser.isAllow('write', true);
     // edit.value = shareUser.isAllow('edit');
@@ -51,21 +53,15 @@ class ShareablePermissionsController extends GetxController {
   Future<void> save() async {
     try {
       // change current options in sharing map
-      await ShareableService.to.invitationHandler
-          .permissionsShareableUserUpdate(
+      await object.updateShareablePermssions(
         {
-          'sharingUsers': {
-            shareUser.id: {
-              'permissions': {
-                // 'read': read.isTrue,
-                // 'write': write.isTrue,
-                // 'edit': edit.isTrue,
-                // 'remove': remove.isTrue,
-                // 'share': share.isTrue,
-              }
-            },
-          }
+          'read': true,
+          'write': true,
+          'edit': true,
+          'remove': true,
+          'share': true,
         },
+        shareUser,
       );
 
       // back
