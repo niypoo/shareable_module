@@ -18,7 +18,7 @@ class ShareablePermissionsController extends GetxController {
 
   // properties
   List<ShareablePermission> shareablePermissions =
-      ShareableService.to.invitationHandler.getShareablePermissions;
+      ShareableService.to.invitationHandler.shareablePermissions;
 
   // final RxBool read = false.obs;
   // final RxBool write = false.obs;

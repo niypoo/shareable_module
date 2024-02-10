@@ -18,33 +18,5 @@ abstract class ShareableServiceInvitationHandler {
 
   List<ShareUser> getShareUsers();
 
-  List<ShareablePermission> shareablePermissions = [
-    ShareablePermission(
-        key: 'read',
-        name: 'Read',
-        description: 'Who has permission to read data.',
-        defaultValue: true),
-    ShareablePermission(
-        key: 'write',
-        name: 'Write',
-        description: 'Who has permission to write data.',
-        defaultValue: true),
-    ShareablePermission(
-        key: 'edit',
-        name: 'Edit',
-        description: 'Who has permission to edit data.',
-        defaultValue: false),
-    ShareablePermission(
-        key: 'remove',
-        name: 'Remove',
-        description: 'Who has permission to remove data.',
-        defaultValue: false),
-    ShareablePermission(
-        key: 'share',
-        name: 'Share',
-        description: 'Who has permission to share data.',
-        defaultValue: false),
-  ];
-
-  List<ShareablePermission> get getShareablePermissions;
+  List<ShareablePermission> shareablePermissions = [];
 }
