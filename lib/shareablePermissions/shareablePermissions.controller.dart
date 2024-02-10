@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shareable_module/models/sharePermission.model.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/shareable.service.dart';
 import 'package:snackbar_helper/snackbar.service.dart';
@@ -11,19 +12,25 @@ class ShareablePermissionsController extends GetxController {
   final ShareUser shareUser = Get.arguments;
 
   // properties
-  final RxBool read = false.obs;
-  final RxBool write = false.obs;
-  final RxBool edit = false.obs;
-  final RxBool remove = false.obs;
-  final RxBool share = false.obs;
+  List<ShareablePermission> shareablePermissions = ShareableService
+      .to.invitationHandler
+      .getShareableObject()
+      .shareablePermissions;
+
+  // final RxBool read = false.obs;
+  // final RxBool write = false.obs;
+  // final RxBool edit = false.obs;
+  // final RxBool remove = false.obs;
+  // final RxBool share = false.obs;
 
   @override
   void onInit() {
-    read.value = shareUser.isAllow('read', true);
-    write.value = shareUser.isAllow('write', true);
-    edit.value = shareUser.isAllow('edit');
-    remove.value = shareUser.isAllow('remove');
-    share.value = shareUser.isAllow('share');
+    
+    // read.value = shareUser.isAllow('read', true);
+    // write.value = shareUser.isAllow('write', true);
+    // edit.value = shareUser.isAllow('edit');
+    // remove.value = shareUser.isAllow('remove');
+    // share.value = shareUser.isAllow('share');
     super.onInit();
   }
 
@@ -38,22 +45,23 @@ class ShareablePermissionsController extends GetxController {
   }
 
   // ON OPTIONS CHANGES
-  onPermissionChange(bool value, RxBool permission) => permission.value = value;
+  onPermissionChange(bool value, bool permission) => permission = value;
 
   // STOR OPTIONS VALUES IN SERVER
   Future<void> save() async {
     try {
       // change current options in sharing map
-      await ShareableService.to.invitationHandler.permissionsShareableUserUpdate(
+      await ShareableService.to.invitationHandler
+          .permissionsShareableUserUpdate(
         {
           'sharingUsers': {
             shareUser.id: {
               'permissions': {
-                'read': read.isTrue,
-                'write': write.isTrue,
-                'edit': edit.isTrue,
-                'remove': remove.isTrue,
-                'share': share.isTrue,
+                // 'read': read.isTrue,
+                // 'write': write.isTrue,
+                // 'edit': edit.isTrue,
+                // 'remove': remove.isTrue,
+                // 'share': share.isTrue,
               }
             },
           }
