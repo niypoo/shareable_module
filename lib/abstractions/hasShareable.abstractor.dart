@@ -23,6 +23,9 @@ abstract class Shareable {
     ShareUser user,
   );
 
-  // check
-  ShareUser? userFromShareable();
+  // check current user permission from sharable
+  bool can(String key, {bool defaultValue = false});
+
+  // check if current user is owner
+  bool isOwner();
 }
