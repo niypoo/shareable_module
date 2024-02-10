@@ -24,5 +24,5 @@ abstract class Shareable {
   );
 
   // check
-  ShareUser userFromShareable();
+  ShareUser? userFromShareable();
 }
