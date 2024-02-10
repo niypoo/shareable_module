@@ -1,9 +1,11 @@
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/models/invitationHandleStatus.model.dart';
 import 'package:shareable_module/models/sharePermission.model.dart';
-import 'package:shareable_module/models/shareUser.model.dart';
 
 abstract class ShareableServiceInvitationHandler {
+  // list of sharable permissions
+  List<ShareablePermission> permissions = [];
+
   // if user use qr-code/link more then once
   // or if user it before in seconde time use it to redirect to object
   Future<void> relationAlreadyExist(String objectId);
@@ -14,9 +16,6 @@ abstract class ShareableServiceInvitationHandler {
     String invitationId,
   );
 
-  Shareable getShareableObject();
-
-  List<ShareUser> getShareUsers();
-
-  List<ShareablePermission> shareablePermissions = [];
+  // define the sharable Instance | object
+  Shareable get shareableInstance;
 }

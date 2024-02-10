@@ -14,11 +14,11 @@ class ShareablePermissionsController extends GetxController {
 
   // properties
   final Shareable object =
-      ShareableService.to.invitationHandler.getShareableObject();
+      ShareableService.to.invitationHandler.shareableInstance;
 
   // properties
   List<ShareablePermission> shareablePermissions =
-      ShareableService.to.invitationHandler.shareablePermissions;
+      ShareableService.to.invitationHandler.permissions;
 
   Map<String, dynamic> permissions = {};
 

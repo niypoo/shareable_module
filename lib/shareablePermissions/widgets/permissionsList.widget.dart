@@ -10,7 +10,6 @@ class PermissionsList extends GetView<ShareablePermissionsController> {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -22,7 +22,7 @@ class ShareableUsersListController extends GetxController
 
   // properties
   final Shareable object =
-      ShareableService.to.invitationHandler.getShareableObject();
+      ShareableService.to.invitationHandler.shareableInstance;
 
   // get share users list
   List<ShareUser> sharingUsers = [];
@@ -137,7 +137,7 @@ class ShareableUsersListController extends GetxController
 
   // get share users list and update
   getShareUsersList() {
-    sharingUsers = ShareableService.to.invitationHandler.getShareUsers();
+    sharingUsers = object.shareableUsers([]);
     update();
   }
 }
