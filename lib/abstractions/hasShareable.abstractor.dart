@@ -12,7 +12,7 @@ abstract class Shareable {
   });
 
   // Get sharable users list
-  List<ShareUser> shareableUsers({List<String> except});
+  List<ShareUser> shareableUsers(List<String> except);
 
   // Remove sharable user from list
   Future<void> removeFromShareableUsers(ShareUser user);
