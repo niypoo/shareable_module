@@ -18,7 +18,7 @@ abstract class ShareableServiceInvitationHandler {
 
   List<ShareUser> getShareUsers();
 
-  List<ShareablePermission> defaultShareablePermissions = [
+  List<ShareablePermission> shareablePermissions = [
     ShareablePermission(
         key: 'read',
         name: 'Read',
@@ -46,8 +46,5 @@ abstract class ShareableServiceInvitationHandler {
         defaultValue: false),
   ];
 
-  List<ShareablePermission> extraPermissions();
-
-  List<ShareablePermission> get getShareablePermissions =>
-      [...defaultShareablePermissions, ...extraPermissions()];
+  List<ShareablePermission> get getShareablePermissions;
 }
