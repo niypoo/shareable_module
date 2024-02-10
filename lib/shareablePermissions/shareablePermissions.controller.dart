@@ -51,6 +51,9 @@ class ShareablePermissionsController extends GetxController {
   // STOR OPTIONS VALUES IN SERVER
   Future<void> save() async {
     try {
+      print('object ${object.id}');
+      print('shareUser ${shareUser.id}');
+      print('permissions $permissions');
       // change current options in sharing map
       await object.updateShareablePermssions(
         permissions,
