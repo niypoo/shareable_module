@@ -21,7 +21,8 @@ class ShareableUsersListController extends GetxController
   final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
 
   // properties
-  late Shareable object;
+  late Shareable object =
+      ShareableService.to.invitationHandler.shareableInstance;
 
   // get share users list
   List<ShareUser> sharingUsers = [];
@@ -136,7 +137,8 @@ class ShareableUsersListController extends GetxController
 
   // get share users list and update
   getShareUsersList() {
-    sharingUsers = ShareableService.to.invitationHandler.shareableInstance.shareableUsers([]);
+    sharingUsers = ShareableService.to.invitationHandler.shareableInstance
+        .shareableUsers([]);
     update();
   }
 }
