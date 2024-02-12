@@ -3,11 +3,11 @@ import 'package:fly_ui/views/layouts/responsiveView.widget.dart';
 import 'package:fly_ui/views/layouts/scaffoldLayout.widget.dart';
 import 'package:fly_ui/views/widgets/appBar.widget.dart';
 import 'package:get/get.dart';
-import 'package:shareable_module/shareablePermissions/shareablePermissions.controller.dart';
-import 'package:shareable_module/shareablePermissions/widgets/permissionsList.widget.dart';
+import 'package:shareable_module/shareablePermissions/shareableUserRole.controller.dart';
+import 'package:shareable_module/shareablePermissions/widgets/rolesList.widget.dart';
 
-class ShareablePermissions extends GetView<ShareablePermissionsController> {
-  const ShareablePermissions({
+class ShareableUserRoleView extends GetView<ShareableUserRoleController> {
+  const ShareableUserRoleView({
     Key? key,
   }) : super(key: key);
 
@@ -15,10 +15,10 @@ class ShareablePermissions extends GetView<ShareablePermissionsController> {
   Widget build(BuildContext context) {
     return FlyScaffold.padding(
       appBar: FlyAppBar(
-        title: 'Permissions'.tr,
+        title: 'Sharable.User Role'.tr,
       ),
       child: const FlyResponsiveView(
-        child: PermissionsList(),
+        child: RolesListWidget(),
       ),
     );
   }

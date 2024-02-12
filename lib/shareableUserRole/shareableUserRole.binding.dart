@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:shareable_module/shareablePermissions/shareablePermissions.controller.dart';
 
-class ShareablePermissionsBinding implements Bindings {
+class ShareableUserRoleBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ShareablePermissionsController>(() => ShareablePermissionsController());
+    Get.lazyPut<ShareableUserRoleController>(() => ShareableUserRoleController());
   }
 }

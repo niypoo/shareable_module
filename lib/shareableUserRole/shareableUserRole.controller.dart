@@ -7,8 +7,8 @@ import 'package:shareable_module/shareable.service.dart';
 import 'package:snackbar_helper/snackbar.service.dart';
 import 'package:unicons/unicons.dart';
 
-class ShareablePermissionsController extends GetxController {
-  static ShareablePermissionsController get to => Get.find();
+class ShareableUserRoleController extends GetxController {
+  static ShareableUserRoleController get to => Get.find();
 
   final ShareUser shareUser = Get.arguments;
 
