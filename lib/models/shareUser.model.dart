@@ -57,7 +57,7 @@ class ShareUser implements BaseUser {
       fcmToken: data['fcmToken'],
       primary: data['primary'] ?? false,
       type: data['type'],
-      role: stringToRole(data['permissions']),
+      role: stringToRole(data['role']),
       isAnonymous: data['isAnonymous'] ?? false,
       createdAt: data['createdAt'] != null
           ? DateTime.parse(data['createdAt'])

@@ -4,7 +4,7 @@ enum Role {
   viewer,
 }
 
-Role stringToRole(String role) {
+Role stringToRole(String? role) {
   switch (role) {
     case 'owner':
       return Role.owner;
