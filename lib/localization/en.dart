@@ -3,4 +3,7 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.Choose the user role and specify the permissions it has.":
       "Choose the user role and specify the permissions it has.",
   "Sharable.User Role": 'User Role',
+  "owner": "owner",
+  "editor": "editor",
+  "viewer": "viewer",
 };

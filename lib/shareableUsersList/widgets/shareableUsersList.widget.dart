@@ -32,8 +32,9 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                             placeholder: 'assets/images/avatars/0.png',
                           ),
                           title: user.getDisplayName,
-                          subtitle:
-                              controller.isOwner(user.id) ? 'Owner' : 'Sharing',
+                          subtitle: controller.isOwner(user.id)
+                              ? 'Owner'
+                              : user.role.name.tr,
                           value: !controller.isOwner(user.id) &&
                                   controller.isCurrentUserOwner
                               ? IconButton(
