@@ -30,9 +30,9 @@ class RolesListWidget extends GetView<ShareableUserRoleController> {
                 .map(
                   (e) => FlyRadioListTile(
                     value: e.name,
-                    title: e.name.tr,
+                    title: 'Sharable.${e.name}'.tr,
                     valueGroup: controller.userRole.name,
-                    hint: '${e.name} role hint'.tr,
+                    hint: 'Sharable.${e.name} role hint'.tr,
                     onTap: (_) => controller.onRoleChange(e),
                   ),
                 )

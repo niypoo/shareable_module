@@ -21,8 +21,7 @@ class ShareableUsersListController extends GetxController
   final BaseUser _user = FirebaseAuthenticationService.to.user.value!;
 
   // properties
-  final Shareable object =
-      ShareableService.to.invitationHandler.shareableInstance;
+  late Shareable object;
 
   // get share users list
   List<ShareUser> sharingUsers = [];
@@ -31,8 +30,8 @@ class ShareableUsersListController extends GetxController
 
   @override
   void onInit() {
-    isCurrentUserOwner = object.uid == _user.id;
     getShareUsersList();
+    isCurrentUserOwner = object.uid == _user.id;
 
     // Handle Search input actions
     searchTextController.addListener(
@@ -79,22 +78,22 @@ class ShareableUsersListController extends GetxController
   Future<void> onMoreOptionTap(ShareUser shareUser) async {
     final String? payload = await ActionSheetHelper.show(options: [
       ActionSheetOption(
-        title: 'Remove'.tr,
+        title: 'Sharable.Remove'.tr,
         value: 'Remove',
-        subtitle: 'Remove this user from share list.'.tr,
+        subtitle: 'Sharable.Remove this user from share list.'.tr,
         leading: const Icon(UniconsLine.trash),
       ),
       ActionSheetOption(
-        title: 'Permissions'.tr,
-        value: 'Permissions',
-        subtitle: 'Manage this user permissions.'.tr,
+        title: 'Sharable.Roles'.tr,
+        value: 'Roles',
+        subtitle: 'Sharable.Manage this user role.'.tr,
         leading: const Icon(UniconsLine.setting),
       ),
     ]);
 
     if (payload == null) return;
 
-    if (payload == 'Permissions') {
+    if (payload == 'Roles') {
       toPermission(shareUser);
     } else if (payload == 'Remove') {
       removeShareableUser(shareUser);
@@ -104,7 +103,7 @@ class ShareableUsersListController extends GetxController
   // open permission
   Future<void> toPermission(ShareUser shareUser) async {
     await Get.toNamed(
-      ShareableRoutesNames.shareablePermission,
+      ShareableRoutesNames.shareableUserRole,
       arguments: shareUser,
     );
 
@@ -116,8 +115,8 @@ class ShareableUsersListController extends GetxController
   Future<void> removeShareableUser(ShareUser shareUser) async {
 // confirm user first
     final bool? confirm = await AdvanceConformationSheetHelper.show(
-      title: 'Confirmation !'.tr,
-      subTitle: 'Do you want remove share user ?'.trParams(
+      title: 'Sharable.Confirmation !'.tr,
+      subTitle: 'Sharable.Do you want remove share user ?'.trParams(
         {
           '_ame': object.displayName,
         },
@@ -137,7 +136,7 @@ class ShareableUsersListController extends GetxController
 
   // get share users list and update
   getShareUsersList() {
-    sharingUsers = object.shareableUsers([]);
+    sharingUsers = ShareableService.to.invitationHandler.shareableInstance.shareableUsers([]);
     update();
   }
 }

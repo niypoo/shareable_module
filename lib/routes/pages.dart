@@ -16,7 +16,7 @@ class ShareablePages {
     ),
 
         GetPage(
-      name: ShareableRoutesNames.shareablePermission,
+      name: ShareableRoutesNames.shareableUserRole,
       page: () => const ShareableUserRoleView(),
       binding: ShareableUserRoleBinding(),
       customTransition: FlyRouteTransition(),
