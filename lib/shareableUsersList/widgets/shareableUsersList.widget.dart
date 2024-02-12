@@ -33,8 +33,8 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                           ),
                           title: user.getDisplayName,
                           subtitle: controller.isOwner(user.id)
-                              ? 'Owner'
-                              : user.role.name.tr,
+                              ? 'Sharable.Owner'.tr
+                              : 'Sharable.${user.role.name}'.tr,
                           value: !controller.isOwner(user.id) &&
                                   controller.isCurrentUserOwner
                               ? IconButton(
