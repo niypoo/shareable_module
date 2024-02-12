@@ -3,8 +3,8 @@ import 'package:fly_ui/views/layouts/responsiveView.widget.dart';
 import 'package:fly_ui/views/layouts/scaffoldLayout.widget.dart';
 import 'package:fly_ui/views/widgets/appBar.widget.dart';
 import 'package:get/get.dart';
-import 'package:shareable_module/shareablePermissions/shareableUserRole.controller.dart';
-import 'package:shareable_module/shareablePermissions/widgets/rolesList.widget.dart';
+import 'package:shareable_module/shareableUserRole/shareableUserRole.controller.dart';
+import 'package:shareable_module/shareableUserRole/widgets/rolesList.widget.dart';
 
 class ShareableUserRoleView extends GetView<ShareableUserRoleController> {
   const ShareableUserRoleView({

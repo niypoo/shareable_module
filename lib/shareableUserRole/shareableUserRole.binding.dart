@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:shareable_module/shareablePermissions/shareablePermissions.controller.dart';
+import 'package:shareable_module/shareableUserRole/shareableUserRole.controller.dart';
 
 class ShareableUserRoleBinding implements Bindings {
   @override

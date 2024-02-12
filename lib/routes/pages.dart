@@ -1,8 +1,8 @@
 import 'package:fly_ui/transitions/flyRouteTransition.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/routes/route.dart';
-import 'package:shareable_module/shareablePermissions/shareablePermissions.binding.dart';
-import 'package:shareable_module/shareablePermissions/shareablePermissions.view.dart';
+import 'package:shareable_module/shareableUserRole/shareableUserRole.binding.dart';
+import 'package:shareable_module/shareableUserRole/shareableUserRole.view.dart';
 import 'package:shareable_module/shareableUsersList/shareableUsersList.binding.dart';
 import 'package:shareable_module/shareableUsersList/shareableUsersList.view.dart';
 

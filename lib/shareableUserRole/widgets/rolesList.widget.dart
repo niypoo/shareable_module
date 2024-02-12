@@ -5,7 +5,7 @@ import 'package:fly_ui/views/widgets/listTile/tileRadio.widget.dart';
 import 'package:fly_ui/views/widgets/multiStepPageView/widgets/multiStepHint.widget.dart';
 import 'package:fly_ui/views/widgets/multiStepPageView/widgets/multiStepTitle.widget.dart';
 import 'package:get/get.dart';
-import 'package:shareable_module/shareablePermissions/shareableUserRole.controller.dart';
+import 'package:shareable_module/shareableUserRole/shareableUserRole.controller.dart';
 
 class RolesListWidget extends GetView<ShareableUserRoleController> {
   const RolesListWidget({
