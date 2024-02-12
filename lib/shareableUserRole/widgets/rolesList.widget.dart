@@ -3,7 +3,6 @@ import 'package:fly_ui/extensions/responsive.extension.dart';
 import 'package:fly_ui/views/widgets/buttons/elevatedButton.widget.dart';
 import 'package:fly_ui/views/widgets/listTile/tileRadio.widget.dart';
 import 'package:fly_ui/views/widgets/multiStepPageView/widgets/multiStepHint.widget.dart';
-import 'package:fly_ui/views/widgets/multiStepPageView/widgets/multiStepTitle.widget.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/shareableUserRole/shareableUserRole.controller.dart';
 
@@ -15,10 +14,8 @@ class RolesListWidget extends GetView<ShareableUserRoleController> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Title
-        FlyMultiStepTitle(title: 'Sharable.Change user role.'.tr),
-        SizedBox(height: 8.sp),
         // HINT
         FlyMultiStepHint(
           hint:
@@ -36,7 +33,7 @@ class RolesListWidget extends GetView<ShareableUserRoleController> {
                     title: e.name.tr,
                     valueGroup: controller.userRole.name,
                     hint: '${e.name} role hint'.tr,
-                    onTap: () => controller.onRoleChange(e),
+                    onTap: (_) => controller.onRoleChange(e),
                   ),
                 )
                 .toList(),
