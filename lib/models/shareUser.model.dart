@@ -1,4 +1,5 @@
 import 'package:firebase_authentication_service/models/baseUser.model.dart';
+import 'package:shareable_module/enums/role.enum.dart';
 
 class ShareUser implements BaseUser {
   @override
@@ -26,7 +27,8 @@ class ShareUser implements BaseUser {
   @override
   final dynamic type;
 
-  final Map<String, dynamic>? permissions;
+  // Sharable role
+  final Role role;
 
   ShareUser({
     required this.id,
@@ -41,7 +43,7 @@ class ShareUser implements BaseUser {
     this.updatedAt,
     this.type,
     this.primary = false,
-    this.permissions,
+    required this.role,
   });
 
   factory ShareUser.fromData(dynamic data) {
@@ -55,7 +57,7 @@ class ShareUser implements BaseUser {
       fcmToken: data['fcmToken'],
       primary: data['primary'] ?? false,
       type: data['type'],
-      permissions: data['permissions'],
+      role: stringToRole(data['permissions']),
       isAnonymous: data['isAnonymous'] ?? false,
       createdAt: data['createdAt'] != null
           ? DateTime.parse(data['createdAt'])
@@ -78,7 +80,7 @@ class ShareUser implements BaseUser {
         'fcmToken': fcmToken,
         'type': type,
         'isAnonymous': isAnonymous,
-        'permissions': permissions,
+        'role': role.name,
         'createdAt': createdAt != null
             ? createdAt!.toIso8601String()
             : DateTime.now().toIso8601String(),
@@ -87,15 +89,8 @@ class ShareUser implements BaseUser {
             : DateTime.now().toIso8601String(),
       };
 
-  bool can(String key, {bool defaultValue = false}) {
-    if (permissions == null) return defaultValue;
-    if (permissions!.isEmpty) return defaultValue;
-    if (!permissions!.containsKey(key)) return defaultValue;
-    if (permissions![key] == null) return defaultValue;
-    if (permissions![key] == false) return false;
-
-    return true;
-  }
+  // check if user is own one of candidate roles
+  bool are(List<Role> roles) => roles.contains(role);
 
   @override
   Set<String> get getFCMTokens => fcmToken == null

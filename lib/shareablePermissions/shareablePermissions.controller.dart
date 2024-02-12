@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
-import 'package:shareable_module/models/sharePermission.model.dart';
+import 'package:shareable_module/enums/role.enum.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/shareable.service.dart';
 import 'package:snackbar_helper/snackbar.service.dart';
@@ -17,22 +17,12 @@ class ShareablePermissionsController extends GetxController {
       ShareableService.to.invitationHandler.shareableInstance;
 
   // properties
-  List<ShareablePermission> shareablePermissions =
-      ShareableService.to.invitationHandler.permissions;
-
-  Map<String, dynamic> permissions = {};
+  List<Role> roles = Role.values;
+  Role userRole = Role.viewer;
 
   @override
   void onInit() {
-    // assign exist permssion or default
-    if (shareUser.permissions == null) {
-      for (var permission in shareablePermissions) {
-        permissions[permission.key] = permission.defaultValue;
-      }
-    } else {
-      permissions = shareUser.permissions!;
-    }
-
+    userRole = shareUser.role;
     super.onInit();
   }
 
@@ -47,9 +37,8 @@ class ShareablePermissionsController extends GetxController {
   }
 
   // ON OPTIONS CHANGES
-  onPermissionChange(bool value, String key) {
-    print('key $key , $value');
-    permissions[key] = value;
+  onRoleChange(Role role) {
+    userRole = role;
     update();
   }
 
@@ -58,10 +47,12 @@ class ShareablePermissionsController extends GetxController {
     try {
       print('object ${object.id}');
       print('shareUser ${shareUser.id}');
-      print('permissions $permissions');
+      print('role $userRole');
       // change current options in sharing map
-      await object.updateUserPermissions(
-        permissions,
+      await object.updateShareableUser(
+        {
+          'role': userRole.name,
+        },
         shareUser,
       );
 

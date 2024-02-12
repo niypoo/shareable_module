@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fly_ui/extensions/responsive.extension.dart';
 import 'package:fly_ui/views/widgets/buttons/elevatedButton.widget.dart';
-import 'package:fly_ui/views/widgets/switchOption.widget.dart';
+import 'package:fly_ui/views/widgets/listTile/tileRadio.widget.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/shareablePermissions/shareablePermissions.controller.dart';
 
@@ -16,14 +16,14 @@ class PermissionsList extends GetView<ShareablePermissionsController> {
       children: [
         GetBuilder<ShareablePermissionsController>(
           builder: (controller) => Column(
-            children: controller.shareablePermissions
+            children: controller.roles
                 .map(
-                  (e) => FlySwitchOption(
-                    value: controller.permissions[e.key] ?? e.defaultValue,
+                  (e) => FlyRadioListTile(
+                    value: e.name,
                     title: e.name.tr,
-                    subtitle: e.description.tr,
-                    onChange: (bool v) =>
-                        controller.onPermissionChange(v, e.key),
+                    valueGroup: controller.userRole.name,
+                    hint: '${e.name} role hint'.tr,
+                    onTap: () => controller.onRoleChange(e),
                   ),
                 )
                 .toList(),

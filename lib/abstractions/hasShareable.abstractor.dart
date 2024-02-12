@@ -1,3 +1,4 @@
+import 'package:shareable_module/enums/role.enum.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 
 abstract class Shareable {
@@ -18,13 +19,13 @@ abstract class Shareable {
   Future<void> removeFromShareableUsers(ShareUser user);
 
   // update user permissions from sharable user list
-  Future<void> updateUserPermissions(
-    Map<String, dynamic> permissions,
+  Future<void> updateShareableUser(
+    Map<String, dynamic> data,
     ShareUser user,
   );
 
   // check current user permission from sharable
-  bool can(String key, {bool defaultValue = false});
+  bool hasRole(List<Role> roles);
 
   // check if current user is owner
   bool get isOwner;
