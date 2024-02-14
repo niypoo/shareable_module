@@ -8,9 +8,9 @@ abstract class ShareableServiceInvitationHandler {
 
   // if invitation is valid use it to create relation between objects
   Future<InvitationHandleStatus> relationCreation({
-    String objectId,
-    String invitationId,
-    String role,
+    required String objectId,
+    required String invitationId,
+    required String role,
   });
 
   // define the sharable Instance | object
