@@ -31,5 +31,6 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.user sharing has been deleted": "تم حذف مشاركة المستخدم",
   "Sharable.You have leaved": "لقد غادرت.",
   "Sharable.Do you want leave ?": "هل تريد الرحيل؟",
+  "Sharable.Choose the role of share user.":"اختر دور مستخدم المشاركة.",
   "Sharable.Any invite is valid 24 hours only, anyone who has this invitation can join and manage the data with you.":"أي دعوة صالحة لمدة 24 ساعة فقط، ويمكن لأي شخص لديه هذه الدعوة الانضمام وإدارة البيانات معك.",
 };
