@@ -7,9 +7,15 @@ class ShareableRelationHelper {
   static Future<void> makeRelation({
     required BaseUser userSharingWith,
     required String invitationId,
+    required String role,
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
   }) async {
+    // define
+    final Map<String, dynamic> shareUserData = userSharingWith.toData();
+    // inject role
+    shareUserData['role'] = role;
+
     // if realtime Database Ref exist
     if (realtimeDatabaseRef != null) {
       await realtimeDatabaseRef.child('sharings').child(userSharingWith.id).set(
@@ -17,6 +23,9 @@ class ShareableRelationHelper {
           "status": true,
           'userId': userSharingWith.id,
           'invitationId': invitationId,
+
+          // inject user data
+          ...shareUserData,
         },
       );
     }
@@ -26,7 +35,7 @@ class ShareableRelationHelper {
       await firestoreRef.set(
         {
           'sharingIds': FieldValue.arrayUnion([userSharingWith.id]),
-          'sharingUsers': {userSharingWith.id: userSharingWith.toData()},
+          'sharingUsers': {userSharingWith.id: shareUserData},
         },
         SetOptions(merge: true),
       );
@@ -38,11 +47,12 @@ class ShareableRelationHelper {
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
   }) async {
-
-    
     // if realtime Database Ref exist
     if (realtimeDatabaseRef != null) {
-      await realtimeDatabaseRef.child('sharings').child(userSharingWith.id).remove();
+      await realtimeDatabaseRef
+          .child('sharings')
+          .child(userSharingWith.id)
+          .remove();
     }
 
     // if firestore Database Ref exist
