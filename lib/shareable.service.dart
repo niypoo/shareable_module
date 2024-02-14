@@ -68,8 +68,8 @@ class ShareableService extends GetxService {
 
     // show invitation id as qr-code
     await CustomBottomSheetHelper.show(
-      title: 'Shareable.Invitation QR-Code Title'.tr,
-      subTitle: 'Shareable.Invitation QR-Code Body'.tr,
+      title: 'Sharable.Invitation link title'.tr,
+      subTitle: "Sharable.Ask from whom wants share this case scans this code by his device's camera.".tr,
       child: QRCodeWidget(
           value: _invitationLinkParamsGenerate(invitationId, objectId,
               role: role)),

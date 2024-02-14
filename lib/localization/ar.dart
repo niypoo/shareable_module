@@ -29,6 +29,4 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.user sharing has been deleted":"تم حذف مشاركة المستخدم",
   "Sharable.You have leaved":"لقد غادرت.",
   "Sharable.Do you want leave ?":"هل تريد الرحيل؟",
-  "Shareable.Invitation QR-Code Title":"مشاركة البيانات مع الآخرين.",
-  "Shareable.Invitation QR-Code Body":"يمكنك مشاركة البيانات وإدارتها مع الآخرين",
 };
