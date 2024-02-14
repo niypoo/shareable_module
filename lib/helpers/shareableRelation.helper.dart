@@ -27,6 +27,7 @@ class ShareableRelationHelper {
           // inject user data
           ...shareUserData,
         },
+        
       );
     }
 
