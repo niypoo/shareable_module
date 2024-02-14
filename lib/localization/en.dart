@@ -19,6 +19,7 @@ const Map<String, String> sharableLoclizationEn = {
 
 
   "Sharable.Send invitations":"Send invitations",
+  "Sharable.Invitation link":"Invitation link",
   "Sharable.Any invite is valid 24 hours only, anyone who has this invitation can join and manage the data with you.":"Any invite is valid 24 hours only, anyone who has this invitation can join and manage the data with you.",
   "Sharable.Invitation link title":"Share data with others.",
   "Sharable.Invitation link body":"You can share and manage data with others",

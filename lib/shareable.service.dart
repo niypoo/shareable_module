@@ -278,7 +278,7 @@ class ShareableService extends GetxService {
         ActionSheetOption(
           title: 'Sharable.Invitation link'.tr,
           subtitle:
-              'Sharable.end an invitation link clickable to any person via the social media or email.'
+              'Sharable.send an invitation link clickable to any person via the social media or email.'
                   .tr,
           value: 'Link',
           leading: const Icon(UniconsLine.link),
@@ -321,8 +321,8 @@ class ShareableService extends GetxService {
     if (shareMethods == 'Link') {
       ShareableService.to.invitationAsLink(
         objectId: shareable.id,
-        invitationCardTitle: "Invitation link title",
-        invitationCardMessage: 'Invitation link body',
+        invitationCardTitle: "Sharable.Invitation link title",
+        invitationCardMessage: 'Sharable.Invitation link body',
         role: role,
       );
     } else if (shareMethods == 'QRCode') {
