@@ -278,7 +278,7 @@ class ShareableService extends GetxService {
         ActionSheetOption(
           title: 'Sharable.Invitation link'.tr,
           subtitle:
-              'Sharable.send an invitation link clickable to any person via the social media or email.'
+              'Sharable.Send an invitation link clickable to any person via the social media or email.'
                   .tr,
           value: 'Link',
           leading: const Icon(UniconsLine.link),
