@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_authentication_service/models/baseUser.model.dart';
+import 'package:shareable_module/models/shareUser.model.dart';
 
 class ShareableRelationHelper {
   // TO make a relation
   static Future<void> makeRelation({
-    required BaseUser userSharingWith,
+    required ShareUser userSharingWith,
     required String invitationId,
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
@@ -34,7 +34,7 @@ class ShareableRelationHelper {
   }
 
   static Future<void> removeRelation({
-    required BaseUser userSharingWith,
+    required ShareUser userSharingWith,
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
   }) async {
