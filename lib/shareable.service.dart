@@ -192,9 +192,6 @@ class ShareableService extends GetxService {
   // to compare any invitation accepted details with this invitation
   Future<void> _storeInvitations(ShareInvitation invitation) async {
     // Crate Invitation in firestore / realtime database
-    print('invitation ${invitation.id}');
-    print('objectId ${invitation.objectId}');
-    print('endAt ${invitation.endAt}');
     await InvitationDatabaseHelper.create(invitation);
     await InvitationFirestoreHelper.create(invitation);
   }
@@ -322,14 +319,14 @@ class ShareableService extends GetxService {
     LoadingService.to.on();
 
     if (shareMethods == 'Link') {
-      await ShareableService.to.invitationAsLink(
+      ShareableService.to.invitationAsLink(
         objectId: shareable.id,
         invitationCardTitle: "Invitation link title",
         invitationCardMessage: 'Invitation link body',
         role: role,
       );
     } else if (shareMethods == 'QRCode') {
-      await ShareableService.to
+      ShareableService.to
           .invitationAsQRCode(objectId: shareable.id, role: role);
     }
 

@@ -12,15 +12,17 @@ class QRCodeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: (context.isLandscape ? Get.height : Get.width) * 0.5,
-      width: (context.isLandscape ? Get.height : Get.width) * 0.5,
-      child: SfBarcodeGenerator(
-        barColor: Get.theme.primaryColor,
-        value: value,
-        textStyle: Get.textTheme.bodySmall!,
-        symbology: QRCode(),
-        // showValue: true,
+    return Center(
+      child: SizedBox(
+        height: (context.isLandscape ? Get.height : Get.width) * 0.5,
+        width: (context.isLandscape ? Get.height : Get.width) * 0.5,
+        child: SfBarcodeGenerator(
+          barColor: Get.theme.primaryColor,
+          value: value,
+          textStyle: Get.textTheme.bodySmall!,
+          symbology: QRCode(),
+          // showValue: true,
+        ),
       ),
     );
   }
