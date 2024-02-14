@@ -15,6 +15,7 @@ import 'package:qr_code_scanner_module/helpers/qrCodeScanner.helper.dart';
 import 'package:share_helper/share.helper.dart';
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/abstractions/shareableRelationAlreadyExist.abstract.dart';
+import 'package:shareable_module/enums/role.enum.dart';
 import 'package:shareable_module/helpers/invitation.database.helper.dart';
 import 'package:shareable_module/helpers/invitation.firestore.helper.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -22,6 +23,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:shareable_module/models/invitation.model.dart';
 import 'package:shareable_module/models/invitationHandleStatus.model.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
+import 'package:shareable_module/routes/route.dart';
 import 'package:shareable_module/widgets/qrcode.widget.dart';
 import 'package:snackbar_helper/snackbar.service.dart';
 import 'package:unicons/unicons.dart';
@@ -50,6 +52,7 @@ class ShareableService extends GetxService {
   // open screen of invitation Qr Code
   Future<void> invitationAsQRCode({
     required String objectId,
+    required Role role,
   }) async {
     // Invitation Id
     final String invitationId = RandomHelper.string();
@@ -65,10 +68,11 @@ class ShareableService extends GetxService {
 
     // show invitation id as qr-code
     await CustomBottomSheetHelper.show(
-      title: 'Shareable Invitation QR-Code Title'.tr,
-      subTitle: 'Shareable Invitation QR-Code Body'.tr,
+      title: 'Shareable.Invitation QR-Code Title'.tr,
+      subTitle: 'Shareable.Invitation QR-Code Body'.tr,
       child: QRCodeWidget(
-          value: _invitationLinkParamsGenerate(invitationId, objectId)),
+          value: _invitationLinkParamsGenerate(invitationId, objectId,
+              role: role)),
     );
   }
 
@@ -77,6 +81,7 @@ class ShareableService extends GetxService {
     required String objectId,
     required String invitationCardTitle,
     required String invitationCardMessage,
+    required Role role,
   }) async {
     // Invitation Id
     final String invitationId = RandomHelper.string();
@@ -88,7 +93,7 @@ class ShareableService extends GetxService {
       appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
       appWebsiteUrl: AppConfigService.to.appWebsite!,
       bundleId: AppConfigService.to.bundleId!,
-      params: _invitationLinkParamsGenerate(invitationId, objectId),
+      params: _invitationLinkParamsGenerate(invitationId, objectId, role: role),
       socialTitle: invitationCardTitle,
       socialDescription: invitationCardMessage,
       socialImage: AppConfigService.to.invitationImage!,
@@ -131,6 +136,7 @@ class ShareableService extends GetxService {
     // Define Properties
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
+    final dynamic role = params['role'];
 
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus =
@@ -168,7 +174,11 @@ class ShareableService extends GetxService {
 
       // relation creation PROCESSING
       final InvitationHandleStatus status =
-          await invitationHandler.relationCreation(objectId, invitationId);
+          await invitationHandler.relationCreation(
+        objectId: objectId,
+        invitationId: invitationId,
+        role: role,
+      );
 
       //loading off
       LoadingService.to.off();
@@ -261,23 +271,23 @@ class ShareableService extends GetxService {
   Future<void> createNewInvitation(Shareable shareable) async {
     // ask user
     final dynamic shareMethods = await ActionSheetHelper.show(
-      title: 'Send invitations'.tr,
+      title: 'Sharable.Send invitations'.tr,
       subTitle:
-          "Any invite is valid 24 hours only, anyone who has this invitation can join this diabetic case."
+          "Sharable.Any invite is valid 24 hours only, anyone who has this invitation can join and manage the data with you."
               .tr,
       options: [
         ActionSheetOption(
-          title: 'Invitation link'.tr,
+          title: 'Sharable.Invitation link'.tr,
           subtitle:
-              'Send an invitation link clickable to any person via the social media or email.'
+              'Sharable.end an invitation link clickable to any person via the social media or email.'
                   .tr,
           value: 'Link',
           leading: const Icon(UniconsLine.link),
         ),
         ActionSheetOption(
-          title: 'QR Code'.tr,
+          title: 'Sharable.QR Code'.tr,
           subtitle:
-              "Ask from whom wants share this case scans this code by his device's camera."
+              "Sharable.Ask from whom wants share this case scans this code by his device's camera."
                   .tr,
           value: 'QRCode',
           leading: const Icon(UniconsLine.qrcode_scan),
@@ -288,6 +298,24 @@ class ShareableService extends GetxService {
     // if not skip
     if (shareMethods == null) return;
 
+    // ask user
+    final Role? role = await ActionSheetHelper.show(
+      title: 'Sharable.Roles'.tr,
+      subTitle: "Sharable.Choose the role of share user.".tr,
+      options: Role.values
+          .map(
+            (role) => ActionSheetOption(
+              title: 'Sharable.${role.name}'.tr,
+              subtitle: 'Sharable.${role.name} role hint'.tr.tr,
+              value: role,
+            ),
+          )
+          .toList(),
+    );
+
+    // if not skip
+    if (role == null) return;
+
     // Loading
     LoadingService.to.on();
 
@@ -296,17 +324,28 @@ class ShareableService extends GetxService {
         objectId: shareable.id,
         invitationCardTitle: "Invitation link title",
         invitationCardMessage: 'Invitation link body',
+        role: role,
       );
     } else if (shareMethods == 'QRCode') {
-      await ShareableService.to.invitationAsQRCode(objectId: shareable.id);
+      await ShareableService.to
+          .invitationAsQRCode(objectId: shareable.id, role: role);
     }
 
     // Loading
     LoadingService.to.off();
   }
 
-  String _invitationLinkParamsGenerate(String invitationId, String objectId) =>
-      'objectId=$objectId&invitationId=$invitationId';
+  String _invitationLinkParamsGenerate(String invitationId, String objectId,
+          {Role role = Role.viewer}) =>
+      'objectId=$objectId&invitationId=$invitationId&role=${role.name}';
+
+  // open permission
+  Future<void> chnageRole(ShareUser shareUser) async {
+    await Get.toNamed(
+      ShareableRoutesNames.shareableUserRole,
+      arguments: shareUser,
+    );
+  }
 
   // REMOVE USER SHARING
   Future<void> remove({
@@ -315,8 +354,8 @@ class ShareableService extends GetxService {
   }) async {
     // confirm
     final bool? confirm = await ConformationSheetHelper.show(
-      title: 'Confirmation !'.tr,
-      subTitle: 'Do you want delete user sharing?'.trParams(
+      title: 'Sharable.Confirmation !'.tr,
+      subTitle: 'Sharable.Do you want remove share user ?'.trParams(
         {
           '_ame': removeUser.getDisplayName,
         },
@@ -337,7 +376,7 @@ class ShareableService extends GetxService {
 
     // show Snack bar
     SnackbarHelper.show(
-      body: 'user sharing has been deleted'.trParams(
+      body: 'Sharable.user sharing has been deleted'.trParams(
         {
           '_ame': UsernameHelper.username(removeUser.displayName),
         },
@@ -352,8 +391,8 @@ class ShareableService extends GetxService {
   }) async {
     // confirm user first
     final bool? confirm = await AdvanceConformationSheetHelper.show(
-      title: 'Confirmation !'.tr,
-      subTitle: 'Do you want leave diabetic ?'.trParams(
+      title: 'Sharable.Confirmation !'.tr,
+      subTitle: 'Sharable.Do you want leave diabetic ?'.trParams(
         {
           '_ame': object.displayName,
         },
@@ -380,7 +419,7 @@ class ShareableService extends GetxService {
 
     // show snack bar
     SnackbarHelper.show(
-      body: 'You have been leave this diabetic case.'.tr,
+      body: 'Sharable.You have leaved.'.tr,
       icon: UniconsLine.times,
     );
   }

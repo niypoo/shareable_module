@@ -1,6 +1,5 @@
 import 'package:bottom_sheet_helper/models/actionSheetOption.model.dart';
 import 'package:bottom_sheet_helper/services/actionSheet.helper.dart';
-import 'package:bottom_sheet_helper/services/advanceConformationSheet.helper.dart';
 import 'package:firebase_authentication_service/firebaseAuthentication.service.dart';
 import 'package:firebase_authentication_service/models/baseUser.model.dart';
 import 'package:flutter/widgets.dart';
@@ -8,7 +7,6 @@ import 'package:fly_ui/modules/searchInput/abstracts/hasSearchInput.abstract.dar
 import 'package:get/get.dart';
 import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
-import 'package:shareable_module/routes/route.dart';
 import 'package:shareable_module/shareable.service.dart';
 import 'package:unicons/unicons.dart';
 
@@ -95,41 +93,10 @@ class ShareableUsersListController extends GetxController
     if (payload == null) return;
 
     if (payload == 'Roles') {
-      toPermission(shareUser);
+      ShareableService.to.chnageRole(shareUser);
     } else if (payload == 'Remove') {
-      removeShareableUser(shareUser);
+      ShareableService.to.remove(object: object, removeUser: shareUser);
     }
-  }
-
-  // open permission
-  Future<void> toPermission(ShareUser shareUser) async {
-    await Get.toNamed(
-      ShareableRoutesNames.shareableUserRole,
-      arguments: shareUser,
-    );
-
-    // update data
-    getShareUsersList();
-  }
-
-  // open permission
-  Future<void> removeShareableUser(ShareUser shareUser) async {
-// confirm user first
-    final bool? confirm = await AdvanceConformationSheetHelper.show(
-      title: 'Sharable.Confirmation !'.tr,
-      subTitle: 'Sharable.Do you want remove share user ?'.trParams(
-        {
-          '_ame': object.displayName,
-        },
-      ),
-      icon: UniconsLine.trash,
-    );
-
-    //skip
-    if (confirm == null || !confirm) return;
-
-    // remove diabetic shareable user
-    await object.removeFromShareableUsers(shareUser);
 
     // update data
     getShareUsersList();
