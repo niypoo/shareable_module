@@ -192,7 +192,9 @@ class ShareableService extends GetxService {
   // to compare any invitation accepted details with this invitation
   Future<void> _storeInvitations(ShareInvitation invitation) async {
     // Crate Invitation in firestore / realtime database
-
+    print('invitation ${invitation.id}');
+    print('objectId ${invitation.objectId}');
+    print('endAt ${invitation.endAt}');
     await InvitationDatabaseHelper.create(invitation);
     await InvitationFirestoreHelper.create(invitation);
   }
