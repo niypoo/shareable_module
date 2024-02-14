@@ -23,9 +23,7 @@ class ShareableRelationHelper {
           "status": true,
           'userId': userSharingWith.id,
           'invitationId': invitationId,
-
-          // inject user data
-          ...shareUserData,
+          'role':role,
         },
       );
     }
