@@ -47,7 +47,6 @@ class ShareUser implements BaseUser {
   });
 
   factory ShareUser.fromData(dynamic data) {
-    print(' ${data['displayName']} => ${data['role']}');
     return ShareUser(
       id: data['id'],
       displayName: data['displayName'],

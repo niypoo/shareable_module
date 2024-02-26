@@ -9,9 +9,11 @@ class ShareableUserInfoCard extends StatelessWidget {
   const ShareableUserInfoCard({
     super.key,
     required this.shareUser,
+    required this.isOwner,
   });
 
   final ShareUser shareUser;
+  final bool isOwner;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,14 +44,14 @@ class ShareableUserInfoCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Sharable.${shareUser.role.name}'.tr,
+                    'Sharable.${isOwner ? 'Owner' : shareUser.role.name}'.tr,
                     style: Get.textTheme.labelSmall!.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(height: 5.sp),
                   Text(
-                    'Sharable.${shareUser.role.name} role hint'.tr,
+                    'Sharable.${isOwner ? 'Owner' : shareUser.role.name} role hint'.tr,
                     style: Get.textTheme.labelSmall!.copyWith(fontSize: 7.sp),
                   ),
                 ],
