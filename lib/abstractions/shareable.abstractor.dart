@@ -1,8 +1,5 @@
-import 'package:get/get.dart';
 import 'package:shareable_module/enums/role.enum.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
-import 'package:snackbar_helper/snackbar.service.dart';
-import 'package:unicons/unicons.dart';
 
 abstract class Shareable {
   final String id;
@@ -35,10 +32,4 @@ abstract class Shareable {
 
   ShareUser? get currentUserFromShareableList;
 
-  void notAutorizedMessage() => SnackbarHelper.warning(
-        title: 'Sharable.Not Authorized'.tr,
-        body:
-            "Sharable.You don't have permissions to make this actions, ask owner to change your role.",
-        icon: UniconsLine.lock,
-      );
 }
