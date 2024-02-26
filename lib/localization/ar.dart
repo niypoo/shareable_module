@@ -6,11 +6,16 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.Owner": "مالك",
   "Sharable.Owner role hint":
       "يمكنه عرض البيانات وإنشائها وتحريرها وإزالتها ومشاركتها.",
+  "Sharable.your Owner role hint":
+      "يمكنك عرض البيانات وإنشائها وتحريرها وإزالتها ومشاركتها.",
   "Sharable.editor": "محرر",
   "Sharable.editor role hint": "يمكنه عرض البيانات وإنشائها وتحريرها.",
+  "Sharable.your editor role hint": "يمكنك عرض البيانات وإنشائها وتحريرها.",
   "Sharable.viewer": "مشاهد",
   "Sharable.viewer role hint": "يمكنه عرض البيانات فقط.",
+  "Sharable.your viewer role hint": "يمكنك عرض البيانات فقط.",
   "Sharable.Remove": "حذف",
+  "Sharable.Your role is":"دورك هو",
   "Sharable.Remove this user from share list.":
       "قم بإزالة هذا المستخدم من قائمة المشاركة.",
   "Sharable.Manage this user role.": "إدارة دور المستخدم هذا.",

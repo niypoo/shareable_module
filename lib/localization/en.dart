@@ -5,17 +5,20 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.User Role": 'User Role',
   "Sharable.Owner": "owner",
   "Sharable.Owner role hint": "he can do view, create, edit, remove and share data.",
+  "Sharable.your Owner role hint": "You can do view, create, edit, remove and share data.",
   "Sharable.editor": "editor",
   "Sharable.editor role hint": "he can do view, create, edit data.",
+  "Sharable.your editor role hint": "You can do view, create, edit data.",
   "Sharable.viewer": "viewer",
   "Sharable.viewer role hint": "he can do view data only.",
+  "Sharable.your viewer role hint": "You can do view data only.",
   "Sharable.Remove": "Remove",
   "Sharable.Remove this user from share list.": "Remove this user from share list.",
   "Sharable.Manage this user role.": "Manage this user role.",
   "Sharable.Roles":"Roles",
   "Sharable.Confirmation !":"Confirmation !",
   "Sharable.Do you want remove share user ?": "Do you want remove @_ame ?",
-
+  "Sharable.Your role is":"Your role is",
 
 
   "Sharable.Choose the role of share user.":"Sharable.Choose the role of share user.",
