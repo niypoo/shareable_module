@@ -69,7 +69,9 @@ class ShareableService extends GetxService {
     // show invitation id as qr-code
     await CustomBottomSheetHelper.show(
       title: 'Sharable.Invitation link title'.tr,
-      subTitle: "Sharable.Ask from whom wants share this case scans this code by his device's camera.".tr,
+      subTitle:
+          "Sharable.Ask from whom wants share this case scans this code by his device's camera."
+              .tr,
       child: QRCodeWidget(
           value: _invitationLinkParamsGenerate(invitationId, objectId,
               role: role)),
@@ -422,4 +424,11 @@ class ShareableService extends GetxService {
       icon: UniconsLine.times,
     );
   }
+
+  void notAutorizedMessage() => SnackbarHelper.warning(
+        title: 'Sharable.Not Authorized'.tr,
+        body:
+            "Sharable.You don't have permissions to make this actions, ask owner to change your role.",
+        icon: UniconsLine.lock,
+      );
 }
