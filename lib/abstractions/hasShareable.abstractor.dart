@@ -29,4 +29,6 @@ abstract class Shareable {
 
   // check if current user is owner
   bool get isOwner;
+
+  ShareUser? get currentUserFromShareableList;
 }
