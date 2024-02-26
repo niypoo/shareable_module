@@ -74,6 +74,9 @@ class ShareableUsersListController extends GetxController
     getShareUsersList();
   }
 
+  ShareUser? get currentUserFromShareableList =>
+      sharingUsers.firstWhere((sh) => sh.id == _user.id);
+
   Future<void> onMoreOptionTap(ShareUser shareUser) async {
     final String? payload = await ActionSheetHelper.show(options: [
       ActionSheetOption(
