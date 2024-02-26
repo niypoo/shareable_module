@@ -5,7 +5,7 @@ import 'package:firebase_authentication_service/models/baseUser.model.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fly_ui/modules/searchInput/abstracts/hasSearchInput.abstract.dart';
 import 'package:get/get.dart';
-import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
+import 'package:shareable_module/abstractions/shareable.abstractor.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/shareable.service.dart';
 import 'package:unicons/unicons.dart';

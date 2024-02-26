@@ -30,5 +30,8 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.user sharing has been deleted":"user sharing has been deleted",
   "Sharable.You have leaved":"You have leaved.",
   "Sharable.Do you want leave ?":"Do you want leave ?",
+
+  "Sharable.Not Authorized":"Not Authorized",
+  "Sharable.You don't have permissions to make this actions, ask owner to change your role.":"ou don't have permissions to make this actions, ask owner to change your role.",
 };
 

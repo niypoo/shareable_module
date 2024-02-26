@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
+import 'package:shareable_module/abstractions/shareable.abstractor.dart';
 import 'package:shareable_module/enums/role.enum.dart';
 import 'package:shareable_module/models/shareUser.model.dart';
 import 'package:shareable_module/shareable.service.dart';

@@ -1,4 +1,4 @@
-import 'package:shareable_module/abstractions/hasShareable.abstractor.dart';
+import 'package:shareable_module/abstractions/shareable.abstractor.dart';
 import 'package:shareable_module/models/invitationHandleStatus.model.dart';
 
 abstract class ShareableServiceInvitationHandler {
