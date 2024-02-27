@@ -27,9 +27,12 @@ abstract class Shareable {
   // check current user permission from sharable
   bool hasRole(List<Role> roles);
 
+  // check current user permission from sharable and if not show message
+  // depend on hasRole messages
+  void hasRoleWithRestrictedMessage(List<Role> roles);
+
   // check if current user is owner
   bool get isOwner;
 
   ShareUser? get currentUserFromShareableList;
-
 }
