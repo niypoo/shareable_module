@@ -25,8 +25,7 @@ abstract class Shareable {
   );
 
   // check current user permission from sharable
-  // interfaceAlert to disable message to user
-  bool hasRole(List<Role> roles , {bool alertDisplay = false});
+  bool hasRole(List<Role> roles);
 
   // check if current user is owner
   bool get isOwner;
