@@ -428,7 +428,7 @@ class ShareableService extends GetxService {
   void notAutorizedMessage() => SnackbarHelper.warning(
         title: 'Sharable.Not Authorized'.tr,
         body:
-            "Sharable.You don't have permissions to make this actions, ask owner to change your role.",
+            "Sharable.You don't have permissions to make this actions, ask owner to change your role.".tr,
         icon: UniconsLine.lock,
       );
 }
