@@ -204,7 +204,7 @@ class ShareableService extends GetxService {
   ) async {
     return MessageBottomSheetHelper.show(
       title: status.title,
-      subTitle: status.message,
+      body: status.message,
       icon: status.icon!,
     );
   }
