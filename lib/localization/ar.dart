@@ -3,8 +3,8 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.Choose the user role and specify the permissions it has.":
       "اختر دور المستخدم وحدد الأذونات التي يتمتع بها.",
   "Sharable.User Role": 'دور المستخدم',
-  "Sharable.Owner": "مالك",
-  "Sharable.Owner role hint":
+  "Sharable.owner": "مالك",
+  "Sharable.owner role hint":
       "يمكنه عرض البيانات وإنشائها وتحريرها وإزالتها ومشاركتها.",
   "Sharable.your Owner role hint":
       "يمكنك عرض البيانات وإنشائها وتحريرها وإزالتها ومشاركتها.",
