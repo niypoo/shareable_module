@@ -24,13 +24,14 @@ class PortraitView extends GetView<ShareableUsersListController> {
           delegate: FlySliverContainer(
             initMaxExtent: 45.sp,
             initMinExtent: 45.sp,
-            child: (bool isCollapse, double shrinkOffset) =>
-                 FlyAppBar(title: 'Sharing'.tr),
+            child: (bool isCollapse, double shrinkOffset) => FlyAppBar(
+              title: 'Sharing'.tr,
+              titleSpacing: 0.0,
+            ),
           ),
           pinned: false,
           floating: false,
         ),
-        
         SliverPersistentHeader(
           pinned: true,
           floating: false,
