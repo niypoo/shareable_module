@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  get: ^4.6.5
+  get: ^4.6.6
   syncfusion_flutter_barcodes: ^22.1.39
   loading_service:
     git: 
