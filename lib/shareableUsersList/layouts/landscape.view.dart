@@ -22,6 +22,9 @@ class ShareableUsersListLandscapeView
             FlyAppBar(
               title: 'Sharing'.tr,
               titleSpacing: 0.0,
+              actions: const [
+                CreateNewInvitationAppBarButton(),
+              ],
             ),
             FlySearchInput(
               controller: controller,
@@ -35,7 +38,7 @@ class ShareableUsersListLandscapeView
           children: [
             ShareableUsersListWidget(),
             // Button
-            CreateNewInvitationButton(),
+            // CreateNewInvitationButton(),
           ],
         ),
       ),

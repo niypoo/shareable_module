@@ -7,6 +7,7 @@ import 'package:fly_ui/views/widgets/sliverContainer.widget.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/shareableUsersList/shareableUsersList.controller.dart';
 import 'package:shareable_module/shareableUsersList/widgets/CreateNewInvitationButton.widget.dart';
+// import 'package:shareable_module/shareableUsersList/widgets/CreateNewInvitationButton.widget.dart';
 import 'package:shareable_module/shareableUsersList/widgets/shareableUsersList.widget.dart';
 
 class ShareableUsersListPortraitView
@@ -24,7 +25,7 @@ class ShareableUsersListPortraitView
           children: [
             ShareableUsersListWidget(),
             // Button
-            CreateNewInvitationButton(),
+            // CreateNewInvitationButton(),
           ],
         ),
       ),
@@ -37,6 +38,9 @@ class ShareableUsersListPortraitView
             child: (bool isCollapse, double shrinkOffset) => FlyAppBar(
               title: 'Sharing'.tr,
               titleSpacing: 0.0,
+              actions: const [
+                CreateNewInvitationAppBarButton(),
+              ],
             ),
           ),
           pinned: false,
