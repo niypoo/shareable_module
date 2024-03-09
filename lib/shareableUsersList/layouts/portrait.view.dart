@@ -6,10 +6,12 @@ import 'package:fly_ui/views/widgets/appBar.widget.dart';
 import 'package:fly_ui/views/widgets/sliverContainer.widget.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/shareableUsersList/shareableUsersList.controller.dart';
+import 'package:shareable_module/shareableUsersList/widgets/CreateNewInvitationButton.widget.dart';
 import 'package:shareable_module/shareableUsersList/widgets/shareableUsersList.widget.dart';
 
-class PortraitView extends GetView<ShareableUsersListController> {
-  const PortraitView({
+class ShareableUsersListPortraitView
+    extends GetView<ShareableUsersListController> {
+  const ShareableUsersListPortraitView({
     Key? key,
   }) : super(key: key);
 
@@ -17,7 +19,15 @@ class PortraitView extends GetView<ShareableUsersListController> {
   Widget build(BuildContext context) {
     return FlyNestedScrollView(
       // BODY
-      body: const ShareableUsersListWidget(),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            ShareableUsersListWidget(),
+            // Button
+            CreateNewInvitationButton(),
+          ],
+        ),
+      ),
       // APP BAR
       headerSliverBuilder: [
         SliverPersistentHeader(

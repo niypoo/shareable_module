@@ -75,20 +75,23 @@ class ShareableUsersListController extends GetxController
   }
 
   Future<void> onMoreOptionTap(ShareUser shareUser) async {
-    final String? payload = await ActionSheetHelper.show(options: [
-      ActionSheetOption(
-        title: 'Sharable.Remove'.tr,
-        value: 'Remove',
-        subtitle: 'Sharable.Remove this user from share list.'.tr,
-        leading: const Icon(UniconsLine.trash),
-      ),
-      ActionSheetOption(
-        title: 'Sharable.Roles'.tr,
-        value: 'Roles',
-        subtitle: 'Sharable.Manage this user role.'.tr,
-        leading: const Icon(UniconsLine.setting),
-      ),
-    ]);
+    final String? payload = await ActionSheetHelper.show(
+        title: object.displayName,
+        subTitle: 'Options'.tr,
+        options: [
+          ActionSheetOption(
+            title: 'Sharable.Remove'.tr,
+            value: 'Remove',
+            subtitle: 'Sharable.Remove this user from share list.'.tr,
+            leading: const Icon(UniconsLine.trash),
+          ),
+          ActionSheetOption(
+            title: 'Sharable.Roles'.tr,
+            value: 'Roles',
+            subtitle: 'Sharable.Manage this user role.'.tr,
+            leading: const Icon(UniconsLine.setting),
+          ),
+        ]);
 
     if (payload == null) return;
 
