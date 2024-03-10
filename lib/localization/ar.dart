@@ -44,8 +44,8 @@ const Map<String, String> sharableLoclizationAr = {
       "ليس لديك أذونات للقيام بهذه الإجراءات، اطلب من المالك تغيير دورك.",
   
   
-  "Sharable.There isn't anyone in list called name.":"There isn't anyone in list called @_nm.",
-  "Sharable.Try searching with a different name.":"Try searching with a different name."
+  "Sharable.There isn't anyone in list called name.":"لا يوجد أي شخص في القائمة يسمى @_nm.",
+  "Sharable.Try searching with a different name.":"حاول البحث باستخدام اسم مختلف."
 
 };
 
