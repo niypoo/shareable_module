@@ -36,5 +36,8 @@ const Map<String, String> sharableLoclizationEn = {
 
   "Sharable.Not Authorized":"Not Authorized",
   "Sharable.You don't have permissions to make this actions, ask owner to change your role.":"ou don't have permissions to make this actions, ask owner to change your role.",
+  "Sharable.There isn't anyone in list called name.":
+      "There isn't anyone in list called @_nm.",
+  "Sharable.Try searching with a different name.":"Try searching with a different name."
 };
 
