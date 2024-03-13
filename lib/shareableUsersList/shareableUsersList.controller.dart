@@ -96,9 +96,9 @@ class ShareableUsersListController extends GetxController
     if (payload == null) return;
 
     if (payload == 'Roles') {
-      ShareableService.to.chnageRole(shareUser);
+      await ShareableService.to.chnageRole(shareUser);
     } else if (payload == 'Remove') {
-      ShareableService.to.remove(object: object, removeUser: shareUser);
+     await ShareableService.to.remove(object: object, removeUser: shareUser);
     }
 
     // update data
@@ -109,6 +109,8 @@ class ShareableUsersListController extends GetxController
   getShareUsersList() {
     sharingUsers = ShareableService.to.invitationHandler.shareableInstance
         .shareableUsers([]);
+
+    print('sharingUsers ${sharingUsers.length}');
     update();
   }
 }

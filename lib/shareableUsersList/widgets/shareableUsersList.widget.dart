@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fly_ui/extensions/responsive.extension.dart';
 import 'package:fly_ui/views/widgets/images/image.widget.dart';
 import 'package:fly_ui/views/widgets/listTile/tile.widget.dart';
 import 'package:fly_ui/views/widgets/pageMessage.widget.dart';
@@ -32,8 +33,8 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                 .map(
                   (user) => FlyListTile(
                     leading: FlyImage(
-                      height: 100,
-                      width: 50,
+                      height: 55.sp,
+                      width: 40.sp,
                       url: user.photoUrl,
                       placeholder: 'assets/images/avatars/0.png',
                     ),
