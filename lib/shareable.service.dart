@@ -205,7 +205,7 @@ class ShareableService extends GetxService {
     return MessageBottomSheetHelper.show(
       title: status.title,
       body: status.message,
-      icon: status.icon!,
+      icon: status.icon ?? UniconsLine.exclamation_triangle,
     );
   }
 
