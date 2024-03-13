@@ -36,7 +36,6 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                       height: 40.sp,
                       width: 30.sp,
                       url: user.photoUrl,
-                      placeholder: 'assets/images/avatars/0.png',
                     ),
                     title: user.getDisplayName,
                     subtitle: controller.isOwner(user.id)
