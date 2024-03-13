@@ -46,7 +46,6 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                             controller.isCurrentUserOwner
                         ? IconButton(
                             icon: const Icon(UniconsLine.ellipsis_v),
-                            color: Get.theme.primaryColor,
                             onPressed: () => controller.onMoreOptionTap(user),
                           )
                         : const SizedBox.shrink(),
