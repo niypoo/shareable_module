@@ -155,10 +155,6 @@ class ShareableService extends GetxService {
     );
 
     if (!isInvitationIsValid) {
-      print('Link Error #1');
-      print('isInvitationIsValid $isInvitationIsValid');
-      print('invitationId $invitationId');
-      print('objectId $objectId');
       return _invitationStatusMessageShow(opsStatus);
     }
 
@@ -172,10 +168,10 @@ class ShareableService extends GetxService {
     // Second Case 2 the user not exist so respond will be permission-denied
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
-    catch (e) {
+    catch (e,r) {
       // if error null or not = permission-denied return global error
       if (e.toString() != 'permission-denied') {
-        print('Link Error #2');
+        print('Erorr $e $r');
         return _invitationStatusMessageShow(opsStatus);
       }
 
