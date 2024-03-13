@@ -155,6 +155,10 @@ class ShareableService extends GetxService {
     );
 
     if (!isInvitationIsValid) {
+      print('Link Error #1');
+      print('isInvitationIsValid $isInvitationIsValid');
+      print('invitationId $invitationId');
+      print('objectId $objectId');
       return _invitationStatusMessageShow(opsStatus);
     }
 
@@ -171,6 +175,7 @@ class ShareableService extends GetxService {
     catch (e) {
       // if error null or not = permission-denied return global error
       if (e.toString() != 'permission-denied') {
+        print('Link Error #2');
         return _invitationStatusMessageShow(opsStatus);
       }
 
