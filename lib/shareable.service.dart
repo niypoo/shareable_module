@@ -87,7 +87,7 @@ class ShareableService extends GetxService {
   }) async {
     // Invitation Id
     final String invitationId = RandomHelper.string();
-
+    print('AppConfigService.to.dynamicLink ${AppConfigService.to.dynamicLink}');
     //! generate share Link
     final Uri link = await DynamicLinksHelper.create(
       path: 'shareable',
@@ -428,7 +428,8 @@ class ShareableService extends GetxService {
   void notAutorizedMessage() => SnackbarHelper.warning(
         title: 'Sharable.Not Authorized'.tr,
         body:
-            "Sharable.You don't have permissions to make this actions, ask owner to change your role.".tr,
+            "Sharable.You don't have permissions to make this actions, ask owner to change your role."
+                .tr,
         icon: UniconsLine.lock,
       );
 }
