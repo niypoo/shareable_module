@@ -142,7 +142,7 @@ class ShareableService extends GetxService {
   
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus =
-        InvitationHandleStatus(title: "Ops".tr, message: "invitation-error".tr);
+        InvitationHandleStatus(title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
 
     //loading on
     LoadingService.to.on();

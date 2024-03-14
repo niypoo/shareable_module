@@ -15,7 +15,7 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.viewer role hint": "يمكنه عرض البيانات فقط.",
   "Sharable.your viewer role hint": "يمكنك عرض البيانات فقط.",
   "Sharable.Remove": "حذف",
-  "Sharable.Your role is":"دورك هو",
+  "Sharable.Your role is": "دورك هو",
   "Sharable.Remove this user from share list.":
       "قم بإزالة هذا المستخدم من قائمة المشاركة.",
   "Sharable.Manage this user role.": "إدارة دور المستخدم هذا.",
@@ -42,10 +42,18 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.Not Authorized": "غير مصرح به",
   "Sharable.You don't have permissions to make this actions, ask owner to change your role.":
       "ليس لديك أذونات للقيام بهذه الإجراءات، اطلب من المالك تغيير دورك.",
-  
-  
-  "Sharable.There isn't anyone in list called name.":"لا يوجد أي شخص في القائمة يسمى @_nm.",
-  "Sharable.Try searching with a different name.":"حاول البحث باستخدام اسم مختلف."
-
+  "Sharable.There isn't anyone in list called name.":
+      "لا يوجد أي شخص في القائمة يسمى @_nm.",
+  "Sharable.Try searching with a different name.":
+      "حاول البحث باستخدام اسم مختلف.",
+  "Sharable.Congratulation":
+      "هناك مشكلة في رابط الدعوة. يرجى المحاولة مرة أخرى أو طلب دعوة جديدة.",
+  "Sharable.you-have-already-sharing":
+      "يبدو أنك تشارك بالفعل حالة مريض السكري هذا.",
+  "Sharable.case-owner-invitation":
+      "أنت صاحب حالة مرض السكري هذا. لا يمكنك مشاركة نفسك!",
+  "Sharable.user-invitation-not-exist":
+      "يبدو أن هذا المستخدم لم يعد موجودًا ، أو أن هناك مشكلة في رابط الدعوة. يرجى المحاولة مرة أخرى أو جعل الصديق يرسل دعوة جديدة.",
+  "Invitation Received": "تم استلام الدعوة",
+  "Sharable.Ops": "للاسف",
 };
-

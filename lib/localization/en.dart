@@ -38,6 +38,19 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.You don't have permissions to make this actions, ask owner to change your role.":"ou don't have permissions to make this actions, ask owner to change your role.",
   "Sharable.There isn't anyone in list called name.":
       "There isn't anyone in list called @_nm.",
-  "Sharable.Try searching with a different name.":"Try searching with a different name."
+  "Sharable.Try searching with a different name.":"Try searching with a different name.",
+
+
+  "Sharable.Congratulation":"Congratulation",
+  "Sharable.invitation-error":
+      "There is an issue with the invitation link. Please try again or ask a new invitation.",
+  "Sharable.you-have-already-sharing":
+      "Seems you're already sharing this diabetic's case.",
+  "Sharable.case-owner-invitation":
+      "You are the owner of this diabetic's case. You cannot share yourself!",
+  "Sharable.user-invitation-not-exist":
+      "it Seems this user does not exist any more, or there is an issue with the invitation link. Please try again or make the friend to send a new invitation.",
+  "Sharable.Ops": "Ops",
+  
 };
 
