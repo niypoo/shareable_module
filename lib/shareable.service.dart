@@ -5,6 +5,7 @@ import 'package:bottom_sheet_helper/services/advanceConformationSheet.helper.dar
 import 'package:bottom_sheet_helper/services/conformationSheet.helper.dart';
 import 'package:bottom_sheet_helper/services/customBottomSheet.helper.dart';
 import 'package:bottom_sheet_helper/services/messageBottomSheet.helper.dart';
+import 'package:dynamic_links_helper/dynamicLinks.app_links.helper.dart';
 import 'package:dynamic_links_helper/dynamicLinks.helper.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
@@ -91,14 +92,14 @@ class ShareableService extends GetxService {
     //! generate share Link
     final Uri link = await DynamicLinksHelper.create(
       path: 'shareable',
-      uriPrefix: AppConfigService.to.dynamicLink!,
+      uriPrefix: AppConfigService.to.dynamicLink,
       appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
-      appWebsiteUrl: AppConfigService.to.appWebsite!,
+      appWebsiteUrl: AppConfigService.to.appWebsite,
       bundleId: AppConfigService.to.bundleId!,
       params: _invitationLinkParamsGenerate(invitationId, objectId, role: role),
       socialTitle: invitationCardTitle,
       socialDescription: invitationCardMessage,
-      socialImage: AppConfigService.to.invitationImage!,
+      socialImage: AppConfigService.to.invitationImage,
     );
 
     // store invitations on cloud
