@@ -173,6 +173,7 @@ print('role $role');
     catch (e,r) {
       // if error null or not = permission-denied return global error
       if (e.toString() != 'permission-denied') {
+        print('[[[Erorr]]] ${e.toString()}');
         print('Erorr $e $r');
         return _invitationStatusMessageShow(opsStatus);
       }
@@ -184,7 +185,7 @@ print('role $role');
         invitationId: invitationId,
         role: role,
       );
-
+print('Erorr $e $r');
       //loading off
       LoadingService.to.off();
 
