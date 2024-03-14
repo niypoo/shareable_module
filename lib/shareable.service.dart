@@ -139,7 +139,9 @@ class ShareableService extends GetxService {
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
     final dynamic role = params['role'];
-
+print('invitationId $invitationId');
+print('objectId $objectId');
+print('role $role');
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus =
         InvitationHandleStatus(title: "Ops".tr, message: "invitation-error".tr);
