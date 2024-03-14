@@ -7,6 +7,7 @@ class ShareableRelationHelper {
   static Future<void> makeRelation({
     required BaseUser userSharingWith,
     required String invitationId,
+    required String objectId,
     required String role,
     DatabaseReference? realtimeDatabaseRef,
     DocumentReference? firestoreRef,
@@ -22,8 +23,9 @@ class ShareableRelationHelper {
         {
           "status": true,
           'userId': userSharingWith.id,
+          'objectId': objectId,
           'invitationId': invitationId,
-          'role':role,
+          'role': role,
         },
       );
     }
