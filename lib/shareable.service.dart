@@ -5,8 +5,7 @@ import 'package:bottom_sheet_helper/services/advanceConformationSheet.helper.dar
 import 'package:bottom_sheet_helper/services/conformationSheet.helper.dart';
 import 'package:bottom_sheet_helper/services/customBottomSheet.helper.dart';
 import 'package:bottom_sheet_helper/services/messageBottomSheet.helper.dart';
-import 'package:dynamic_links_helper/dynamicLinks.app_links.helper.dart';
-import 'package:dynamic_links_helper/dynamicLinks.helper.dart';
+import 'package:deeplink_helper/deeplink.helper.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:helpers/random.helper.dart';
@@ -90,16 +89,12 @@ class ShareableService extends GetxService {
     final String invitationId = RandomHelper.string();
 
     //! generate share Link
-    final Uri link = await DynamicLinksHelper.create(
+    final String link = DeeplinkHelper.create(
       path: 'shareable',
-      uriPrefix: AppConfigService.to.dynamicLink,
-      appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
-      appWebsiteUrl: AppConfigService.to.appWebsite,
-      bundleId: AppConfigService.to.bundleId!,
       params: _invitationLinkParamsGenerate(invitationId, objectId, role: role),
-      socialTitle: invitationCardTitle,
-      socialDescription: invitationCardMessage,
-      socialImage: AppConfigService.to.invitationImage,
+      text: invitationCardMessage,
+      url: AppConfigService.to.deeplinkURL,
+      schema: AppConfigService.to.deeplinkSchema,
     );
 
     // store invitations on cloud
@@ -140,10 +135,10 @@ class ShareableService extends GetxService {
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
     final dynamic role = params['role'];
-  
+
     // define common error to used it in multi places
-    final InvitationHandleStatus opsStatus =
-        InvitationHandleStatus(title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
+    final InvitationHandleStatus opsStatus = InvitationHandleStatus(
+        title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
 
     //loading on
     LoadingService.to.on();
@@ -170,7 +165,6 @@ class ShareableService extends GetxService {
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
-
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
