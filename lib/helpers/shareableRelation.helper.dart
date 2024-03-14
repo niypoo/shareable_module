@@ -41,7 +41,7 @@ class ShareableRelationHelper {
           'sharingIds': FieldValue.arrayUnion([userSharingWith.id]),
           'sharingUsers': {userSharingWith.id: shareUserData},
           'objectId': objectId,
-          'invitationIds': [invitationId],
+          'invitationId': invitationId,
         },
         SetOptions(merge: true),
       );
