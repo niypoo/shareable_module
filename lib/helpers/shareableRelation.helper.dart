@@ -32,10 +32,16 @@ class ShareableRelationHelper {
 
     // if firestore Database Ref exist
     if (firestoreRef != null) {
+      // inject user role
+      shareUserData['role'] = role;
+
+      // trigger set
       await firestoreRef.set(
         {
           'sharingIds': FieldValue.arrayUnion([userSharingWith.id]),
           'sharingUsers': {userSharingWith.id: shareUserData},
+          'objectId': objectId,
+          'invitationIds': [invitationId],
         },
         SetOptions(merge: true),
       );
