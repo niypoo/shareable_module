@@ -170,10 +170,11 @@ print('role $role');
     // Second Case 2 the user not exist so respond will be permission-denied
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
-    catch (e,r) {
+    on FirebaseException catch (e,r) {
       // if error null or not = permission-denied return global error
       if (e.toString() != 'permission-denied') {
-        print('[[[Erorr]]] ${e.toString()}');
+        print('[[[err.message]]] ${e.code}');
+        print('[[[Erorr]]] ${e.message}');
         print('Erorr $e $r');
         return _invitationStatusMessageShow(opsStatus);
       }
