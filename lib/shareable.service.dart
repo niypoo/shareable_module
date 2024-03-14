@@ -139,9 +139,7 @@ class ShareableService extends GetxService {
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
     final dynamic role = params['role'];
-print('invitationId $invitationId');
-print('objectId $objectId');
-print('role $role');
+  
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus =
         InvitationHandleStatus(title: "Ops".tr, message: "invitation-error".tr);
@@ -170,12 +168,12 @@ print('role $role');
     // Second Case 2 the user not exist so respond will be permission-denied
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
-    on FirebaseException catch (e,r) {
+    on FirebaseException catch (e) {
+
+      // permission-denied is message that I looking for &
+      // that mean user not shared already
       // if error null or not = permission-denied return global error
-      if (e.toString() != 'permission-denied') {
-        print('[[[err.message]]] ${e.code}');
-        print('[[[Erorr]]] ${e.message}');
-        print('Erorr $e $r');
+      if (e.code != 'permission-denied') {
         return _invitationStatusMessageShow(opsStatus);
       }
 
@@ -186,7 +184,7 @@ print('role $role');
         invitationId: invitationId,
         role: role,
       );
-print('Erorr $e $r');
+
       //loading off
       LoadingService.to.off();
 
@@ -433,7 +431,8 @@ print('Erorr $e $r');
   void notAutorizedMessage() => SnackbarHelper.warning(
         title: 'Sharable.Not Authorized'.tr,
         body:
-            "Sharable.You don't have permissions to make this actions, ask owner to change your role.".tr,
+            "Sharable.You don't have permissions to make this actions, ask owner to change your role."
+                .tr,
         icon: UniconsLine.lock,
       );
 }
