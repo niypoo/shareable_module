@@ -90,7 +90,7 @@ class ShareableService extends GetxService {
 
     //! generate share Link
     final String link = DeeplinkHelper.create(
-      path: '/shareable',
+      path: 'shareable',
       params: _invitationLinkParamsGenerate(invitationId, objectId, role: role),
       text: invitationCardMessage,
       url: AppConfigService.to.deeplinkURL,
