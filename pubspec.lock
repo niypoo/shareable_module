@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _flutterfire_internals
-      sha256: "554f148e71e9e016d9c04d4af6b103ca3f74a1ceed7d7307b70a0f41e991eb77"
+      sha256: f5628cd9c92ed11083f425fd1f8f1bc60ecdda458c81d73b143aeda036c35fe7
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.26"
+    version: "1.3.16"
   animations:
     dependency: transitive
     description:
@@ -22,18 +22,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "63f0bf59c86e419cbd6c828ad9eabe6b8d1f6087"
+      resolved-ref: c655a3db944c4d2b381df5355b60fff86907800f
       url: "git@github.com:niypoo/app_configuration_service.git"
     source: git
     version: "1.0.0+1"
-  app_links:
-    dependency: transitive
-    description:
-      name: app_links
-      sha256: fd7fc1569870b4b0d90d17a9f36661a6ff92400fecb6e4adab4abe0f0488bb5f
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0"
   args:
     dependency: transitive
     description:
@@ -79,7 +71,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "650c88dedf3c21d23955d2a96bdeaf4443be0874"
+      resolved-ref: "770ced98884790065f94e447a5ced654c7843f0a"
       url: "git@github.com:niypoo/bottom_sheet_helper.git"
     source: git
     version: "1.0.0+1"
@@ -127,26 +119,26 @@ packages:
     dependency: transitive
     description:
       name: cloud_firestore
-      sha256: "621afb8a3752732f865ea2d25e2f5cd01ed16ee5691f5a33958876d0a1cae846"
+      sha256: "8bfbb5a2edbc6052452326d60de0113fea2bcbf081d34a3f8e45c8b38307b31c"
       url: "https://pub.dev"
     source: hosted
-    version: "4.15.9"
+    version: "4.14.0"
   cloud_firestore_platform_interface:
     dependency: transitive
     description:
       name: cloud_firestore_platform_interface
-      sha256: d200d82314548a11a02056ca96861d216ff814a1efe7bcc6595d404202f5212c
+      sha256: "73ff438fe46028f0e19f55da18b6ddc6906ab750562cd7d9ffab77ff8c0c4307"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.10"
+    version: "6.1.0"
   cloud_firestore_web:
     dependency: transitive
     description:
       name: cloud_firestore_web
-      sha256: "3b3046c23eccc1064328ab010cff4df470b6b1cfd648b82e08a84f5fb210bcb9"
+      sha256: "232e45e95970d3a6baab8f50f9c3a6e2838d145d9d91ec9a7392837c44296397"
       url: "https://pub.dev"
     source: hosted
-    version: "3.10.9"
+    version: "3.9.0"
   collection:
     dependency: transitive
     description:
@@ -192,7 +184,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "2aa7c48bbd7c17c1f1e4eaad485e4b51075fbca8"
+      resolved-ref: bf156ee93fae4c361df9f7dcb10ed4cc42414707
       url: "git@github.com:niypoo/dynamic_links_helper.git"
     source: git
     version: "1.0.0+1"
@@ -224,26 +216,26 @@ packages:
     dependency: transitive
     description:
       name: firebase_auth
-      sha256: "3fd6475e60d518c021e70e7d4262db7dac327adf496e71048545da2e0b9ca510"
+      sha256: "279b2773ff61afd9763202cb5582e2b995ee57419d826b9af6517302a59b672f"
       url: "https://pub.dev"
     source: hosted
-    version: "4.17.9"
+    version: "4.16.0"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
-      sha256: d44458576804f246a126fe797547330d2f7bd62069ce12479b583082340a2e4d
+      sha256: "3c9cfaccb7549492edf5b0c67c6dd1c6727c7830891aa6727f2fb225f0226626"
       url: "https://pub.dev"
     source: hosted
-    version: "7.1.9"
+    version: "7.0.9"
   firebase_auth_web:
     dependency: transitive
     description:
       name: firebase_auth_web
-      sha256: "57262c987e4f4e30c3e9a31f41171348c7dfbcdb8c84faa4cf841cea33e0e499"
+      sha256: c7b1379ccef7abf4b6816eede67a868c44142198e42350f51c01d8fc03f95a7d
       url: "https://pub.dev"
     source: hosted
-    version: "5.10.0"
+    version: "5.8.13"
   firebase_authentication_service:
     dependency: "direct main"
     description:
@@ -257,10 +249,10 @@ packages:
     dependency: transitive
     description:
       name: firebase_core
-      sha256: "67bf0d5fd78f12f51c6b54a72f6141314136a1a90e98b1b7c45e7fac883254ed"
+      sha256: "96607c0e829a581c2a483c658f04e8b159964c3bae2730f73297070bc85d40bb"
       url: "https://pub.dev"
     source: hosted
-    version: "2.27.1"
+    version: "2.24.2"
   firebase_core_platform_interface:
     dependency: transitive
     description:
@@ -273,34 +265,50 @@ packages:
     dependency: transitive
     description:
       name: firebase_core_web
-      sha256: "5377eaac3b9fe8aaf22638d87f92b62784f23572e132dfc029195e84d6cb37de"
+      sha256: d585bdf3c656c3f7821ba1bd44da5f13365d22fcecaf5eb75c4295246aaa83c0
       url: "https://pub.dev"
     source: hosted
-    version: "2.12.0"
+    version: "2.10.0"
   firebase_database:
     dependency: transitive
     description:
       name: firebase_database
-      sha256: c7e73adcccd10ff0587342b32c55ead7ec90472f4b57bebf415137559fbef05a
+      sha256: "8568ad41f9312ab1f162f70c1e3e7cb7420b8bc8d07e4d543e575bb0cb41f8a5"
       url: "https://pub.dev"
     source: hosted
-    version: "10.4.10"
+    version: "10.4.0"
   firebase_database_platform_interface:
     dependency: transitive
     description:
       name: firebase_database_platform_interface
-      sha256: "03bd5ebd12cf8611be68c88028f76712e82842bdf17bffad953b69c45e2d6f78"
+      sha256: "4366ade2390f8799a317bb13af29c2a1fdfc84f4d04372094756b86a6cbfd305"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.5+26"
+    version: "0.2.5+16"
   firebase_database_web:
     dependency: transitive
     description:
       name: firebase_database_web
-      sha256: a19604e81c89d06b8b8abf0c6be79b68a6f3eef45a0578f2c621b46b378594c1
+      sha256: "4920a83b917493b37fd408cbb01c289ef8a422d9ed48982f908a9850290262f9"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.3+26"
+    version: "0.2.3+16"
+  firebase_dynamic_links:
+    dependency: transitive
+    description:
+      name: firebase_dynamic_links
+      sha256: b0522806658428803aeb5e7be0b22a29acb8f8697a8909c36965feaeb1f655bd
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.8"
+  firebase_dynamic_links_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_dynamic_links_platform_interface
+      sha256: "8b90384d8f85c7211f2b5e2d9d5ae98bd08091f116ef2bd1a74b33574efacc61"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.6+16"
   firestore_service:
     dependency: "direct main"
     description:
@@ -402,7 +410,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "363989adf1740138cc1ecd4c0c659dfb926d1871"
+      resolved-ref: "8b1a2660611dbbaad7f7f9aa2f59110ec4c82994"
       url: "git@github.com:niypoo/fly_ui.git"
     source: git
     version: "1.0.0+1"
@@ -414,14 +422,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.6"
-  gtk:
-    dependency: transitive
-    description:
-      name: gtk
-      sha256: e8ce9ca4b1df106e4d72dad201d345ea1a036cc12c360f1a7d5a758f78ffa42c
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0"
   helpers:
     dependency: "direct main"
     description:
