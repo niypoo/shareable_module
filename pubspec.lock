@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "31235729b8d9c50a57c0f0abe0f27194ec0963cc"
+      resolved-ref: "63f0bf59c86e419cbd6c828ad9eabe6b8d1f6087"
       url: "git@github.com:niypoo/app_configuration_service.git"
     source: git
     version: "1.0.0+1"
@@ -171,15 +171,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  deeplink_helper:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: f0a34fa5154b3d3adfaeeea00bd568311f9fae69
-      url: "git@github.com:niypoo/deeplink_helper.git"
-    source: git
-    version: "1.0.0+1"
   device_info_plus:
     dependency: transitive
     description:
@@ -196,6 +187,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  dynamic_links_helper:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "2aa7c48bbd7c17c1f1e4eaad485e4b51075fbca8"
+      url: "git@github.com:niypoo/dynamic_links_helper.git"
+    source: git
+    version: "1.0.0+1"
   fake_async:
     dependency: transitive
     description:
@@ -1011,5 +1011,5 @@ packages:
     source: hosted
     version: "6.5.0"
 sdks:
-  dart: ">=3.3.1 <=3.9.0"
+  dart: ">=3.3.0 <=3.9.0"
   flutter: ">=3.19.0"
