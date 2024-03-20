@@ -73,8 +73,9 @@ class ShareableService extends GetxService {
           "Sharable.Ask from whom wants share this case scans this code by his device's camera."
               .tr,
       child: QRCodeWidget(
-          value: _invitationLinkParamsGenerate(invitationId, objectId,
-              role: role)),
+        value:
+            'objectId=$objectId&invitationId=$invitationId&role=${role.name}',
+      ),
     );
   }
 
@@ -95,7 +96,11 @@ class ShareableService extends GetxService {
       appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
       appWebsiteUrl: AppConfigService.to.appWebsite,
       bundleId: AppConfigService.to.bundleId!,
-      params: _invitationLinkParamsGenerate(invitationId, objectId, role: role),
+      queryParameters: {
+        'objectId': objectId,
+        'invitationId': invitationId,
+        'role': role.name,
+      },
       socialTitle: invitationCardTitle,
       socialDescription: invitationCardMessage,
       socialImage: AppConfigService.to.invitationImage,
@@ -139,10 +144,10 @@ class ShareableService extends GetxService {
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
     final dynamic role = params['role'];
-  
+
     // define common error to used it in multi places
-    final InvitationHandleStatus opsStatus =
-        InvitationHandleStatus(title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
+    final InvitationHandleStatus opsStatus = InvitationHandleStatus(
+        title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
 
     //loading on
     LoadingService.to.on();
@@ -169,7 +174,6 @@ class ShareableService extends GetxService {
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
-
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
@@ -338,10 +342,6 @@ class ShareableService extends GetxService {
     // Loading
     LoadingService.to.off();
   }
-
-  String _invitationLinkParamsGenerate(String invitationId, String objectId,
-          {Role role = Role.viewer}) =>
-      'objectId=$objectId&invitationId=$invitationId&role=${role.name}';
 
   // open permission
   Future<void> chnageRole(ShareUser shareUser) async {

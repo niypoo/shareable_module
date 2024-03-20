@@ -167,10 +167,10 @@ packages:
     dependency: transitive
     description:
       name: device_info_plus
-      sha256: "77f757b789ff68e4eaf9c56d1752309bd9f7ad557cb105b938a7f8eb89e59110"
+      sha256: "50fb435ed30c6d2525cbfaaa0f46851ea6131315f213c0d921b0e407b34e3b84"
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.2"
+    version: "10.0.1"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -184,7 +184,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: b677303dd283cdb56a31edd85abb521fec7d3986
+      resolved-ref: c3a2679d6bd2708d651805143031ff54531fedec
       url: "git@github.com:niypoo/dynamic_links_helper.git"
     source: git
     version: "1.0.0+1"
@@ -241,7 +241,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "3bac9a62fdc5d48fadb18bed3db802b1245747ce"
+      resolved-ref: "7c23f0342abe80aac701c828809b908104d7e228"
       url: "git@github.com:niypoo/firebase_authentication_service.git"
     source: git
     version: "1.0.0+1"
@@ -314,7 +314,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "75d8424102dfdf0fd7eef113a3f469429bfa2537"
+      resolved-ref: f663f3a85cdf89f4975e570572fd90eed1cd7b17
       url: "git@github.com:niypoo/firestore_service.git"
     source: git
     version: "1.0.0+1"
