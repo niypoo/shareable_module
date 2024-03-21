@@ -148,7 +148,7 @@ class ShareableService extends GetxService {
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus = InvitationHandleStatus(
         title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
-print('SHARE 1');
+
     //loading on
     LoadingService.to.on();
 
@@ -158,7 +158,7 @@ print('SHARE 1');
       invitationId: invitationId,
       objectId: objectId,
     );
-print('SHARE 2');
+
     if (!isInvitationIsValid) {
       return _invitationStatusMessageShow(opsStatus);
     }
@@ -167,7 +167,6 @@ print('SHARE 2');
     try {
       //loading off
       LoadingService.to.off();
-      print('SHARE 3');
       return await invitationHandler.relationAlreadyExist(objectId);
     }
 
@@ -175,7 +174,6 @@ print('SHARE 2');
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
-      print('SHARE 4');
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
@@ -193,7 +191,7 @@ print('SHARE 2');
 
       //loading off
       LoadingService.to.off();
-print('SHARE 5');
+
       // show status of out-side handler function
       return _invitationStatusMessageShow(status);
     }
