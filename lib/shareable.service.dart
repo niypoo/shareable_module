@@ -94,7 +94,7 @@ class ShareableService extends GetxService {
       path: 'shareable',
       uriPrefix: AppConfigService.to.dynamicLink,
       appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
-      appWebsiteUrl: AppConfigService.to.appWebsite,
+      domain: AppConfigService.to.appDomain,
       bundleId: AppConfigService.to.bundleId!,
       queryParameters: {
         'objectId': objectId,
