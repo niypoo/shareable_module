@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: f8045275f5cd90a008311d032244943c7a970e2e
+      resolved-ref: af7b4045b3475c1921f6f0b6d0ab02e7870b9062
       url: "git@github.com:niypoo/app_configuration_service.git"
     source: git
     version: "1.0.0+1"
@@ -184,7 +184,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: c3a2679d6bd2708d651805143031ff54531fedec
+      resolved-ref: d44ae59bd796252835824fd95ff03160a616e0ac
       url: "git@github.com:niypoo/dynamic_links_helper.git"
     source: git
     version: "1.0.0+1"
@@ -728,10 +728,10 @@ packages:
     dependency: transitive
     description:
       name: share_plus_platform_interface
-      sha256: df08bc3a07d01f5ea47b45d03ffcba1fa9cd5370fb44b3f38c70e42cced0f956
+      sha256: "251eb156a8b5fa9ce033747d73535bf53911071f8d3b6f4f0b578505ce0d4496"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.1"
+    version: "3.4.0"
   sky_engine:
     dependency: transitive
     description: flutter
