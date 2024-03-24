@@ -44,7 +44,7 @@ class ShareableUserInfoCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Sharable.your ${isOwner ? 'owner' : shareUser.role.name}'.tr,
+                    'Sharable.${isOwner ? 'owner' : shareUser.role.name}'.tr,
                     style: Get.textTheme.labelSmall!.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
