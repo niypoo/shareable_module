@@ -170,7 +170,7 @@ class ShareableService extends GetxService {
       //loading off
       LoadingService.to.off();
       print('step 3 <<relationAlreadyExist>>');
-      return await invitationHandler.relationAlreadyExist(objectId);
+      return await invitationHandler.isRelationAlreadyExist(objectId);
     }
 
     // Second Case 2 the user not exist so respond will be permission-denied
