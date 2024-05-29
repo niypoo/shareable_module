@@ -134,6 +134,7 @@ class ShareableService extends GetxService {
     if (payload == null) return;
     final Map<String, String> asQuery =
         QrCodeScannerHelper.splitQueryString(payload);
+         print('invitationQRCodeScanner $asQuery');
     await handleInvitation(asQuery);
   }
 
@@ -148,7 +149,8 @@ class ShareableService extends GetxService {
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus = InvitationHandleStatus(
         title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
-
+    print(
+        'step 1 <<invitationId $invitationId>> <<objectId $objectId>> <<role $role>> ');
     //loading on
     LoadingService.to.on();
 
@@ -158,7 +160,7 @@ class ShareableService extends GetxService {
       invitationId: invitationId,
       objectId: objectId,
     );
-
+    print('step 2 <<isInvitationIsValid $isInvitationIsValid>>');
     if (!isInvitationIsValid) {
       return _invitationStatusMessageShow(opsStatus);
     }
@@ -167,6 +169,7 @@ class ShareableService extends GetxService {
     try {
       //loading off
       LoadingService.to.off();
+      print('step 3 <<relationAlreadyExist>>');
       return await invitationHandler.relationAlreadyExist(objectId);
     }
 
@@ -174,10 +177,12 @@ class ShareableService extends GetxService {
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
+      print('step 4 <<e.code ${e.code}}>>');
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
       if (e.code != 'permission-denied') {
+        print('step 5 <<permission-denied>>');
         return _invitationStatusMessageShow(opsStatus);
       }
 
@@ -191,7 +196,7 @@ class ShareableService extends GetxService {
 
       //loading off
       LoadingService.to.off();
-
+      print('step 6 <<relationCreation $status>>');
       // show status of out-side handler function
       return _invitationStatusMessageShow(status);
     }
