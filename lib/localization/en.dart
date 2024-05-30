@@ -1,3 +1,5 @@
+import 'package:qr_code_scanner_module/localization/en.dart';
+
 const Map<String, String> sharableLoclizationEn = {
   'Sharable.Change user role.': "Change user role.",
   "Sharable.Choose the user role and specify the permissions it has.":
@@ -51,6 +53,8 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.user-invitation-not-exist":
       "it Seems this user does not exist any more, or there is an issue with the invitation link. Please try again or make the friend to send a new invitation.",
   "Sharable.Ops": "Ops",
+
+  ...qrCodeLoclizationEn,
   
 };
 

@@ -1,3 +1,5 @@
+import 'package:qr_code_scanner_module/localization/ar.dart';
+
 const Map<String, String> sharableLoclizationAr = {
   'Sharable.Change user role.': "تغيير دور المستخدم.",
   "Sharable.Choose the user role and specify the permissions it has.":
@@ -56,4 +58,7 @@ const Map<String, String> sharableLoclizationAr = {
       "يبدو أن هذا المستخدم لم يعد موجودًا ، أو أن هناك مشكلة في رابط الدعوة. يرجى المحاولة مرة أخرى أو جعل الصديق يرسل دعوة جديدة.",
   "Invitation Received": "تم استلام الدعوة",
   "Sharable.Ops": "للاسف",
+
+
+   ...qrCodeLoclizationAr,
 };
