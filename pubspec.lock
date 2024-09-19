@@ -798,18 +798,18 @@ packages:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_barcodes
-      sha256: "196dc8f6857ca6ac5df252e7444b5b127b54d815fe51681d3688b1add5d1a986"
+      sha256: d0786dd5c2638b9a73fa287d1946bce71c76b22f3055eba25a6a2aa9d50fca87
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.11"
+    version: "27.1.48"
   syncfusion_flutter_core:
     dependency: transitive
     description:
       name: syncfusion_flutter_core
-      sha256: "85f96b7b06f32a60b19ab0bb8c32bf162a0474f2d94f4844384be1118e6b4954"
+      sha256: "4347f4d2f5d89461df2c53e6fbf53aef38c7f05ed79b0760d935fb1ec836213b"
       url: "https://pub.dev"
     source: hosted
-    version: "26.2.11"
+    version: "27.1.48"
   synchronized:
     dependency: transitive
     description:
