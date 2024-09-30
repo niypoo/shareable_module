@@ -17,12 +17,24 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
     return GetBuilder<ShareableUsersListController>(
       autoRemove: false,
       builder: (controller) {
-        if (controller.sharingUsers.isEmpty) {
+        if (controller.sharingUsers.isEmpty &&
+            controller.searchTextController.text.isEmpty) {
           return FlyContainerMessage(
-            image: 'assets/icon/icon.svg',
-            body: "Sharable.There isn't anyone in list called name.".trParams(
+            icon: UniconsLine.user_exclamation,
+            body: "Sharable.Empty list!".trParams(
               {
-                '_nm': this.controller.searchTextController.text,
+                '_nm': controller.searchTextController.text,
+              },
+            ),
+            title: "Sharable.Seems you manage this alone.".tr,
+          );
+        } else if (controller.sharingUsers.isEmpty &&
+            controller.searchTextController.text.isNotEmpty) {
+          return FlyContainerMessage(
+            icon: UniconsLine.search,
+            body: "Sharable.No result!".trParams(
+              {
+                '_nm': controller.searchTextController.text,
               },
             ),
             title: "Sharable.Try searching with a different name.".tr,
