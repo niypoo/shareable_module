@@ -21,23 +21,23 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
             controller.searchTextController.text.isEmpty) {
           return FlyContainerMessage(
             icon: UniconsLine.user_exclamation,
-            body: "Sharable.Empty list!".trParams(
+            title: "Sharable.Empty list!".trParams(
               {
                 '_nm': controller.searchTextController.text,
               },
             ),
-            title: "Sharable.Seems you manage this alone.".tr,
+            body: "Sharable.Seems you manage this alone.".tr,
           );
         } else if (controller.sharingUsers.isEmpty &&
             controller.searchTextController.text.isNotEmpty) {
           return FlyContainerMessage(
             icon: UniconsLine.search,
-            body: "Sharable.No result!".trParams(
+            title: "Sharable.No result!".trParams(
               {
                 '_nm': controller.searchTextController.text,
               },
             ),
-            title: "Sharable.Try searching with a different name.".tr,
+            body: "Sharable.Try searching with a different name.".tr,
           );
         } else {
           return Column(
