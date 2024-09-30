@@ -58,8 +58,8 @@ const Map<String, String> sharableLoclizationAr = {
       "يبدو أن هذا المستخدم لم يعد موجودًا ، أو أن هناك مشكلة في رابط الدعوة. يرجى المحاولة مرة أخرى أو جعل الصديق يرسل دعوة جديدة.",
   "Invitation Received": "تم استلام الدعوة",
   "Sharable.Ops": "للاسف",
-  "Empty list!": "قائمة فارغة!",
-  "Seems you manage this alone.": "يبدو أنك تدير هذا وحدك.",
-  "No result!":"لا يوجد نتيجة!",
+  "Sharable.Empty list!": "قائمة فارغة!",
+  "Sharable.Seems you manage this alone.": "يبدو أنك تدير هذا وحدك.",
+  "Sharable.No result!":"لا يوجد نتيجة!",
   ...qrCodeLoclizationAr,
 };

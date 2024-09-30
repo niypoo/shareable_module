@@ -53,8 +53,9 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.user-invitation-not-exist":
       "it Seems this user does not exist any more, or there is an issue with the invitation link. Please try again or make the friend to send a new invitation.",
   "Sharable.Ops": "Ops",
-  "Empty list!":"Empty list!",
-  "Seems you manage this alone.":"SeemSeems you manage this alone.one",
+  "Sharable.Empty list!":"Empty list!",
+  "Sharable.Seems you manage this alone.":"SeemSeems you manage this alone.one",
+  "Sharable.No result!":"No result!",
 
   ...qrCodeLoclizationEn,
   
