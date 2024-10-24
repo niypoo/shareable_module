@@ -14,7 +14,7 @@ import 'package:loading_service/loading.service.dart';
 import 'package:qr_code_scanner_module/helpers/qrCodeScanner.helper.dart';
 import 'package:share_helper/share.helper.dart';
 import 'package:shareable_module/abstractions/shareable.abstractor.dart';
-import 'package:shareable_module/abstractions/shareableRelationAlreadyExist.abstract.dart';
+import 'package:shareable_module/abstractions/shareableServiceInvitationHandler.abstract.dart';
 import 'package:shareable_module/enums/role.enum.dart';
 import 'package:shareable_module/helpers/invitation.database.helper.dart';
 import 'package:shareable_module/helpers/invitation.firestore.helper.dart';
