@@ -21,7 +21,7 @@ abstract class ShareableServiceInvitationHandler {
   Shareable get shareableInstance;
 
   // sharable ref in firestore
-  DocumentReference? shareableFirestoreRef;
+  CollectionReference? shareableFirestoreRef;
 
   // sharable ref in realtime database
   DatabaseReference? shareableRealtimeDatabaseRef;

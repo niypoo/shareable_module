@@ -19,6 +19,7 @@ class ShareableRelationHelper {
     // if realtime Database Ref exist
     if (handler.shareableRealtimeDatabaseRef != null) {
       await handler.shareableRealtimeDatabaseRef!
+          .child(objectId)
           .child('sharings')
           .child(userSharingWith.id)
           .set(
@@ -35,7 +36,7 @@ class ShareableRelationHelper {
     // if firestore Database Ref exist
     if (handler.shareableFirestoreRef != null) {
       // trigger set
-      await handler.shareableFirestoreRef!.set(
+      await handler.shareableFirestoreRef!.doc(objectId).set(
         {
           'sharingIds': FieldValue.arrayUnion([userSharingWith.id]),
           'sharingUsers': {userSharingWith.id: shareUserData},
@@ -49,11 +50,13 @@ class ShareableRelationHelper {
 
   static Future<void> removeRelation({
     required BaseUser userSharingWith,
+    required String objectId,
     required ShareableServiceInvitationHandler handler,
   }) async {
     // if realtime Database Ref exist
     if (handler.shareableRealtimeDatabaseRef != null) {
       await handler.shareableRealtimeDatabaseRef!
+          .child(objectId)
           .child('sharings')
           .child(userSharingWith.id)
           .remove();
@@ -61,7 +64,7 @@ class ShareableRelationHelper {
 
     // if firestore Database Ref exist
     if (handler.shareableFirestoreRef != null) {
-      await handler.shareableFirestoreRef!.set(
+      await handler.shareableFirestoreRef!.doc(objectId).set(
         {
           'sharingIds': FieldValue.arrayRemove([userSharingWith.id]),
           'sharingUsers': {userSharingWith.id: FieldValue.delete()},
