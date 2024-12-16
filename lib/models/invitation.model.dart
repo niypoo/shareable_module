@@ -1,12 +1,16 @@
+import 'package:shareable_module/enums/role.enum.dart';
+
 class ShareInvitation {
   final String? id;
   final String? objectId;
   final DateTime? endAt;
+  final Role role;
 
   ShareInvitation({
     this.id,
     this.objectId,
     this.endAt,
+    this.role = Role.viewer,
   });
 
   // convert json to object
@@ -15,6 +19,7 @@ class ShareInvitation {
         id: data['id'],
         objectId: data['objectId'],
         endAt: DateTime.fromMillisecondsSinceEpoch(data['endAt']),
+        role: stringToRole(data['role']),
       );
 
   // convert object to json
@@ -22,6 +27,7 @@ class ShareInvitation {
         'id': id,
         'objectId': objectId,
         'endAt': endAt!.millisecondsSinceEpoch,
+        'role': role,
       };
 
   static List<ShareInvitation> fromMap(Map<dynamic, dynamic>? data) {

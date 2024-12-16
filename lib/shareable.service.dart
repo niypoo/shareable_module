@@ -89,7 +89,7 @@ class ShareableService extends GetxService {
     try {
       // Invitation Id
       final String invitationId = RandomHelper.string();
-
+      print('invitationId  ${invitationId}');
       //! generate share Link
       final Uri link = await DynamicLinksHelper.create(
         path: '/shareable',
@@ -100,7 +100,6 @@ class ShareableService extends GetxService {
         queryParameters: {
           'objectId': objectId,
           'invitationId': invitationId,
-          'role': role.name,
         },
         socialTitle: invitationCardTitle,
         socialDescription: invitationCardMessage,
@@ -113,6 +112,7 @@ class ShareableService extends GetxService {
           endAt: DateTime.now().add(invitationExpireAfter),
           id: invitationId,
           objectId: objectId,
+          role: role,
         ),
       );
       print('link.toString() 2 ${link.toString()}');
@@ -337,7 +337,7 @@ class ShareableService extends GetxService {
 
     // Loading
     LoadingService.to.on();
-
+    print('shareMethods $shareMethods');
     if (shareMethods == 'Link') {
       ShareableService.to.invitationAsLink(
         objectId: shareable.id,
