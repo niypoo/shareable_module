@@ -27,7 +27,7 @@ class ShareInvitation {
         'id': id,
         'objectId': objectId,
         'endAt': endAt!.millisecondsSinceEpoch,
-        'role': role,
+        'role': role.name,
       };
 
   static List<ShareInvitation> fromMap(Map<dynamic, dynamic>? data) {
