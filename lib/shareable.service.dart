@@ -92,19 +92,22 @@ class ShareableService extends GetxService {
       print('invitationId  ${invitationId}');
       //! generate share Link
       final Uri link = await DynamicLinksHelper.create(
+        domain: AppConfigService.to.deepLinkUrl,
         path: '/shareable',
-        uriPrefix: AppConfigService.to.dynamicLink,
-        appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
-        domain: AppConfigService.to.appDomain,
-        bundleId: AppConfigService.to.bundleId!,
         queryParameters: {
           'objectId': objectId,
           'invitationId': invitationId,
         },
-        socialTitle: invitationCardTitle,
-        socialDescription: invitationCardMessage,
-        socialImage: AppConfigService.to.invitationImage,
-        shortLink: false,
+
+        //* deprecated
+        // path: '/shareable',
+        // uriPrefix: AppConfigService.to.dynamicLink,
+        // appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
+        // bundleId: AppConfigService.to.bundleId!,
+        // socialTitle: invitationCardTitle,
+        // socialDescription: invitationCardMessage,
+        // socialImage: AppConfigService.to.invitationImage,
+        // shortLink: false,
       );
       print('link.toString() 1 ${link.toString()}');
       // store invitations on cloud
