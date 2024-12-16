@@ -150,7 +150,6 @@ class ShareableService extends GetxService {
     final InvitationHandleStatus opsStatus = InvitationHandleStatus(
         title: "Sharable.Ops".tr, message: "Sharable.invitation-error".tr);
 
-
     //loading on
     LoadingService.to.on();
 
@@ -177,12 +176,10 @@ class ShareableService extends GetxService {
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
-
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
       if (e.code != 'permission-denied') {
-
         return _invitationStatusMessageShow(opsStatus);
       }
 
@@ -206,8 +203,13 @@ class ShareableService extends GetxService {
   // to compare any invitation accepted details with this invitation
   Future<void> _storeInvitations(ShareInvitation invitation) async {
     // Crate Invitation in firestore / realtime database
-    await InvitationDatabaseHelper.create(invitation);
-    await InvitationFirestoreHelper.create(invitation);
+    if (invitationHandler.shareableRealtimeDatabaseRef != null) {
+      await InvitationDatabaseHelper.create(invitation);
+    }
+
+    if (invitationHandler.shareableFirestoreRef != null) {
+      await InvitationFirestoreHelper.create(invitation);
+    }
   }
 
   // only for show message of invitation handel status
