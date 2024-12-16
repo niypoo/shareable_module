@@ -86,37 +86,41 @@ class ShareableService extends GetxService {
     required String invitationCardMessage,
     required Role role,
   }) async {
-    // Invitation Id
-    final String invitationId = RandomHelper.string();
+    try {
+      // Invitation Id
+      final String invitationId = RandomHelper.string();
 
-    //! generate share Link
-    final Uri link = await DynamicLinksHelper.create(
-      path: '/shareable',
-      uriPrefix: AppConfigService.to.dynamicLink,
-      appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
-      domain: AppConfigService.to.appDomain,
-      bundleId: AppConfigService.to.bundleId!,
-      queryParameters: {
-        'objectId': objectId,
-        'invitationId': invitationId,
-        'role': role.name,
-      },
-      socialTitle: invitationCardTitle,
-      socialDescription: invitationCardMessage,
-      socialImage: AppConfigService.to.invitationImage,
-    );
+      //! generate share Link
+      final Uri link = await DynamicLinksHelper.create(
+        path: '/shareable',
+        uriPrefix: AppConfigService.to.dynamicLink,
+        appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
+        domain: AppConfigService.to.appDomain,
+        bundleId: AppConfigService.to.bundleId!,
+        queryParameters: {
+          'objectId': objectId,
+          'invitationId': invitationId,
+          'role': role.name,
+        },
+        socialTitle: invitationCardTitle,
+        socialDescription: invitationCardMessage,
+        socialImage: AppConfigService.to.invitationImage,
+      );
 
-    // store invitations on cloud
-    await _storeInvitations(
-      ShareInvitation(
-        endAt: DateTime.now().add(invitationExpireAfter),
-        id: invitationId,
-        objectId: objectId,
-      ),
-    );
-
-    // open share dialog
-    await ShareHelper.string(link.toString());
+      // store invitations on cloud
+      await _storeInvitations(
+        ShareInvitation(
+          endAt: DateTime.now().add(invitationExpireAfter),
+          id: invitationId,
+          objectId: objectId,
+        ),
+      );
+      print('link.toString() ${link.toString()}');
+      // open share dialog
+      await ShareHelper.string(link.toString());
+    } catch (e, x) {
+      print('ERROR $e $x');
+    }
   }
 
   // do shareable qr-code invitation scanner,
