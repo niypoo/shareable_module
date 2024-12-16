@@ -443,6 +443,15 @@ class ShareableService extends GetxService {
     );
   }
 
+  void shareableInviteRouteCatch(
+      {required String path, Map<String, String>? params}) async {
+    // handle SHARABLE function
+    if (path == '/shareable' && params != null) {
+      await handleInvitation(params);
+      print('handleInvitation $path');
+    }
+  }
+
   void notAutorizedMessage() => SnackbarHelper.warning(
         title: 'Sharable.Not Authorized'.tr,
         body:
