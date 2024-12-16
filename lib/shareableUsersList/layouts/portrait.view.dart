@@ -37,7 +37,7 @@ class ShareableUsersListPortraitView
             initMinExtent: 45.sp,
             child: (bool isCollapse, double shrinkOffset) => FlyAppBar(
               title: 'Sharing'.tr,
-              titleSpacing: 0.0,
+              // titleSpacing: 0.0,
               actions: const [
                 CreateNewInvitationAppBarButton(),
               ],

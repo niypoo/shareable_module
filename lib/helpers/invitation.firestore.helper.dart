@@ -10,6 +10,7 @@ class InvitationFirestoreHelper {
 
   //Add New Invitations
   static Future<void> create(ShareInvitation shareInvitation) async {
+    print('shareInvitation =>[[[[${shareInvitation.toData()}]]]]');
     //update
     return await invitationRef().doc(shareInvitation.id).set(
           shareInvitation.toData(),
