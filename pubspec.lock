@@ -22,7 +22,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "8032673bc5caa8d1a773a55acf0febfbc56270ea"
+      resolved-ref: "502f191a240e03b4545eecde8b3843faa781aca9"
       url: "git@github.com:niypoo/app_configuration_service.git"
     source: git
     version: "1.0.0+1"
@@ -200,7 +200,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "825a4b31e4850b4bb472176af8121b77f7e5fd8c"
+      resolved-ref: "87d293480b8dfa4b5a6f17bcd458b9f609435cb6"
       url: "git@github.com:niypoo/dynamic_links_helper.git"
     source: git
     version: "1.0.0+1"

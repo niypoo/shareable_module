@@ -92,7 +92,8 @@ class ShareableService extends GetxService {
       print('invitationId  ${invitationId}');
       //! generate share Link
       final Uri link = await DynamicLinksHelper.create(
-        domain: AppConfigService.to.deepLinkUrl,
+        scheme: 'https',
+        host: AppConfigService.to.deepLinkHost,
         path: '/shareable',
         queryParameters: {
           'objectId': objectId,
