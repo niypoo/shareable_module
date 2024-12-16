@@ -104,6 +104,7 @@ class ShareableService extends GetxService {
         socialTitle: invitationCardTitle,
         socialDescription: invitationCardMessage,
         socialImage: AppConfigService.to.invitationImage,
+        shortLink: false,
       );
       print('link.toString() 1 ${link.toString()}');
       // store invitations on cloud
