@@ -106,7 +106,7 @@ class ShareableService extends GetxService {
         socialDescription: invitationCardMessage,
         socialImage: AppConfigService.to.invitationImage,
       );
-
+      print('link.toString() 1 ${link.toString()}');
       // store invitations on cloud
       await _storeInvitations(
         ShareInvitation(
@@ -115,7 +115,7 @@ class ShareableService extends GetxService {
           objectId: objectId,
         ),
       );
-      print('link.toString() ${link.toString()}');
+      print('link.toString() 2 ${link.toString()}');
       // open share dialog
       await ShareHelper.string(link.toString());
     } catch (e, x) {
