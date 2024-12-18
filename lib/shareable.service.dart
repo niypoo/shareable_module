@@ -159,7 +159,6 @@ class ShareableService extends GetxService {
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
     final dynamic role = params['role'];
-    print('handleInvitation (params) $params');
 
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus = InvitationHandleStatus(
@@ -174,7 +173,7 @@ class ShareableService extends GetxService {
       invitationId: invitationId,
       objectId: objectId,
     );
-    print('isInvitationIsValid ($isInvitationIsValid) ');
+
     if (!isInvitationIsValid) {
       return _invitationStatusMessageShow(opsStatus);
     }
@@ -191,7 +190,6 @@ class ShareableService extends GetxService {
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
-      print(' FirebaseException ($e) ');
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
@@ -250,56 +248,59 @@ class ShareableService extends GetxService {
       if (invitationId == null || objectId == null) {
         return false;
       }
-print('_isInvitationValid (1) ');
+
       // properties
       final int now = DateTime.now().millisecondsSinceEpoch;
-      //Check invitation is valid in FIRESTORE
-      // get Invitation from firestore
-      DocumentSnapshot<Object?> invitationFirestoreDoc =
-          await InvitationFirestoreHelper.getById(invitationId);
 
-      // convert doc to map
-      Map<dynamic, dynamic>? invitationFireStoreData =
-          invitationFirestoreDoc.data() as Map<dynamic, dynamic>?;
+      // @ only if firestore 
+      if (invitationHandler.shareableFirestoreRef != null) {
+        //Check invitation is valid in FIRESTORE
+        // get Invitation from firestore
+        DocumentSnapshot<Object?> invitationFirestoreDoc =
+            await InvitationFirestoreHelper.getById(invitationId);
 
-      // check if invite is invalid
-      final bool firestoreInvitationInvalid = !invitationFirestoreDoc.exists ||
-          invitationFireStoreData!['objectId'] != objectId ||
-          now > invitationFireStoreData['endAt'];
-print('(2-0) $invitationFireStoreData ');
-print('(2-1) !invitationFirestoreDoc.exists ${!invitationFirestoreDoc.exists} ');
-print('(2-1) invitationFireStoreData![objectId] != objectId ${invitationFireStoreData!['objectId'] != objectId} ');
-print('(2-1) now > invitationFireStoreData[endAt] ${now > invitationFireStoreData['endAt']} ');
-print('_isInvitationValid (2) $firestoreInvitationInvalid ');
-      // If invitation invalid
-      if (firestoreInvitationInvalid) return false;
+        // convert doc to map
+        Map<dynamic, dynamic>? invitationFireStoreData =
+            invitationFirestoreDoc.data() as Map<dynamic, dynamic>?;
 
-      //Check invitation is valid in REALTIME
-      // get Invitation from firestore
-      final DatabaseEvent event =
-          await InvitationDatabaseHelper.getById(invitationId);
+        // check if invite is invalid
+        final bool firestoreInvitationInvalid =
+            !invitationFirestoreDoc.exists ||
+                invitationFireStoreData!['objectId'] != objectId ||
+                now > invitationFireStoreData['endAt'];
 
-      // get snapshot
-      DataSnapshot invitationDatabaseDoc = event.snapshot;
+        // If invitation invalid
+        if (firestoreInvitationInvalid) return false;
+      }
 
-      // convert doc to map
-      final Map<dynamic, dynamic>? invitationDatabaseData =
-          invitationDatabaseDoc.value as Map<dynamic, dynamic>?;
+      // @ only if database realtime firestore
+      if (invitationHandler.shareableRealtimeDatabaseRef != null) {
+        //Check invitation is valid in REALTIME
+        // get Invitation from firestore
+        final DatabaseEvent event =
+            await InvitationDatabaseHelper.getById(invitationId);
 
-      // check if invite is invalid
-      final bool databaseInvitationInvalid =
-          invitationDatabaseData!['objectId'] != objectId ||
-              now > invitationDatabaseData['endAt'];
-print('_isInvitationValid (3) $databaseInvitationInvalid ');
-      // If invitation invalid
-      if (databaseInvitationInvalid) return false;
+        // get snapshot
+        DataSnapshot invitationDatabaseDoc = event.snapshot;
+
+        // convert doc to map
+        final Map<dynamic, dynamic>? invitationDatabaseData =
+            invitationDatabaseDoc.value as Map<dynamic, dynamic>?;
+
+        // check if invite is invalid
+        final bool databaseInvitationInvalid =
+            invitationDatabaseData!['objectId'] != objectId ||
+                now > invitationDatabaseData['endAt'];
+
+        // If invitation invalid
+        if (databaseInvitationInvalid) return false;
+      }
 
       // IS PASS MEAN VALID
       return true;
     }
     // CATCH Error MEAN FALSE
-    catch (e ,r) {
-      print('_isInvitationValid (4) $e $r');
+    catch (e) {
       return false;
     }
   }
@@ -355,7 +356,7 @@ print('_isInvitationValid (3) $databaseInvitationInvalid ');
 
     // Loading
     LoadingService.to.on();
-    print('shareMethods $shareMethods');
+
     if (shareMethods == 'Link') {
       ShareableService.to.invitationAsLink(
         objectId: shareable.id,
