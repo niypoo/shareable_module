@@ -168,7 +168,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "13e08a5ccf491192c65ba021d471b0128220e235"
+      resolved-ref: "248cf34fa21767cd4fb5638a1dcd755add9469a2"
       url: "git@github.com:niypoo/dynamic_links_helper.git"
     source: git
     version: "1.0.0+1"

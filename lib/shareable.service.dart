@@ -159,6 +159,7 @@ class ShareableService extends GetxService {
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
     final dynamic role = params['role'];
+    print('handleInvitation (params) $params');
 
     // define common error to used it in multi places
     final InvitationHandleStatus opsStatus = InvitationHandleStatus(
@@ -173,7 +174,7 @@ class ShareableService extends GetxService {
       invitationId: invitationId,
       objectId: objectId,
     );
-
+    print('isInvitationIsValid ($isInvitationIsValid) ');
     if (!isInvitationIsValid) {
       return _invitationStatusMessageShow(opsStatus);
     }
@@ -190,6 +191,7 @@ class ShareableService extends GetxService {
     // So I will proceeding to add the user in shareable list
     // ignore: non_constant_identifier_names
     on FirebaseException catch (e) {
+      print(' FirebaseException ($e) ');
       // permission-denied is message that I looking for &
       // that mean user not shared already
       // if error null or not = permission-denied return global error
@@ -454,7 +456,6 @@ class ShareableService extends GetxService {
     // handle SHARABLE function
     if (path == '/shareable' && params != null) {
       await handleInvitation(params);
-      print('handleInvitation $path');
     }
   }
 
