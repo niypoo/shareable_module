@@ -266,6 +266,10 @@ print('_isInvitationValid (1) ');
       final bool firestoreInvitationInvalid = !invitationFirestoreDoc.exists ||
           invitationFireStoreData!['objectId'] != objectId ||
           now > invitationFireStoreData['endAt'];
+print('(2-0) $invitationFireStoreData ');
+print('(2-1) !invitationFirestoreDoc.exists ${!invitationFirestoreDoc.exists} ');
+print('(2-1) invitationFireStoreData![objectId] != objectId ${invitationFireStoreData!['objectId'] != objectId} ');
+print('(2-1) now > invitationFireStoreData[endAt] ${now > invitationFireStoreData['endAt']} ');
 print('_isInvitationValid (2) $firestoreInvitationInvalid ');
       // If invitation invalid
       if (firestoreInvitationInvalid) return false;
