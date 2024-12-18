@@ -89,6 +89,38 @@ class ShareUser implements BaseUser {
             : DateTime.now().toIso8601String(),
       };
 
+  static List<ShareUser> fromMap(List<dynamic>? data) {
+    // define list t return back
+    final List<ShareUser> payloadList = [];
+
+    // if null or empty return array
+    if (data == null || data.isEmpty) return payloadList;
+
+    // iterable
+    for (final user in data) {
+      payloadList.add(ShareUser.fromData(user));
+    }
+
+    // return payload after iterable
+    return payloadList;
+  }
+
+  static Map<dynamic, dynamic> toMap(List<ShareUser>? objects) {
+    // define list t return back
+    final Map<dynamic, dynamic> payloadMap = {};
+
+    // if null or empty return array
+    if (objects == null || objects.isEmpty) return payloadMap;
+
+    // iterable
+    for (final x in objects) {
+      payloadMap.addAll(x.toData());
+    }
+
+    // return payload after iterable
+    return payloadMap;
+  }
+
   // check if user is own one of candidate roles
   bool are(List<Role> roles) => roles.contains(role);
 
