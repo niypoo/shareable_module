@@ -182,8 +182,11 @@ class ShareableService extends GetxService {
     try {
       //loading off
       LoadingService.to.off();
-
-      return await invitationHandler.isRelationAlreadyExist(objectId);
+      SnackbarHelper.warning(
+        title: 'Sharable.You are already sharing!'.tr,
+        body: 'Sharable.It seems that you are already on the list of sharers for this item or you are the owner of the item.'.tr);
+      return;
+      // return await invitationHandler.onErrorRelationAlreadyExist(objectId);
     }
 
     // Second Case 2 the user not exist so respond will be permission-denied

@@ -57,6 +57,9 @@ const Map<String, String> sharableLoclizationEn = {
   "Sharable.Seems you manage this alone.":"Seems you manage this alone.",
   "Sharable.No result!":"No result!",
 
+  "Sharable.You are already sharing!":"You are already sharing!",
+  "Sharable.It seems that you are already on the list of sharers for this item or you are the owner of the item.":"It seems that you are already on the list of sharers for this item or you are the owner of the item.",
+
   ...qrCodeLoclizationEn,
   
 };

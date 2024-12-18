@@ -61,5 +61,9 @@ const Map<String, String> sharableLoclizationAr = {
   "Sharable.Empty list!": "قائمة فارغة!",
   "Sharable.Seems you manage this alone.": "يبدو أنك تدير هذا وحدك.",
   "Sharable.No result!":"لا يوجد نتيجة!",
+
+  "Sharable.You are already sharing!":"أنت تشارك بالفعل!",
+  "Sharable.It seems that you are already on the list of sharers for this item or you are the owner of the item.":"يبدو أنك مدرج بالفعل في قائمة المشاركين لهذا العنصر أو أنك مالك العنصر.",
+
   ...qrCodeLoclizationAr,
 };
