@@ -232,6 +232,7 @@ class ShareableService extends GetxService {
   Future<void> _invitationStatusMessageShow(
     InvitationHandleStatus status,
   ) async {
+    LoadingService.to.off();
     return MessageBottomSheetHelper.show(
       title: status.title,
       body: status.message,
@@ -249,7 +250,7 @@ class ShareableService extends GetxService {
       if (invitationId == null || objectId == null) {
         return false;
       }
-
+print('_isInvitationValid (1) ');
       // properties
       final int now = DateTime.now().millisecondsSinceEpoch;
       //Check invitation is valid in FIRESTORE
@@ -265,7 +266,7 @@ class ShareableService extends GetxService {
       final bool firestoreInvitationInvalid = !invitationFirestoreDoc.exists ||
           invitationFireStoreData!['objectId'] != objectId ||
           now > invitationFireStoreData['endAt'];
-
+print('_isInvitationValid (2) $firestoreInvitationInvalid ');
       // If invitation invalid
       if (firestoreInvitationInvalid) return false;
 
@@ -285,7 +286,7 @@ class ShareableService extends GetxService {
       final bool databaseInvitationInvalid =
           invitationDatabaseData!['objectId'] != objectId ||
               now > invitationDatabaseData['endAt'];
-
+print('_isInvitationValid (3) $databaseInvitationInvalid ');
       // If invitation invalid
       if (databaseInvitationInvalid) return false;
 
@@ -294,6 +295,7 @@ class ShareableService extends GetxService {
     }
     // CATCH Error MEAN FALSE
     catch (e) {
+      print('_isInvitationValid (4) $e ');
       return false;
     }
   }
