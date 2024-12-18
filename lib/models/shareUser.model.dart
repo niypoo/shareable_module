@@ -114,7 +114,7 @@ class ShareUser implements BaseUser {
 
     // iterable
     for (final x in objects) {
-      payloadMap.addAll(x.toData());
+      payloadMap.addAll({x.id: x.toData()});
     }
 
     // return payload after iterable
