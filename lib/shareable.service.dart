@@ -89,28 +89,33 @@ class ShareableService extends GetxService {
     try {
       // Invitation Id
       final String invitationId = RandomHelper.string();
-      print('invitationId  ${invitationId}');
+
       //! generate share Link
-      final Uri link = await DynamicLinksHelper.create(
-        scheme: 'https',
-        host: AppConfigService.to.deepLinkHost,
+      final String? link = await DynamicLinksHelper.create(
+        identifier: AppConfigService.to.bundleId!,
+        title: invitationCardTitle,
+        description: invitationCardMessage,
+        imageUrl: AppConfigService.to.invitationImage,
         path: '/shareable',
         queryParameters: {
           'objectId': objectId,
           'invitationId': invitationId,
         },
-
+        keywords: [AppConfigService.to.appName, 'Shareable'],
+        // scheme: 'https',
+        // host: AppConfigService.to.deepLinkHost,
         //* deprecated
         // path: '/shareable',
         // uriPrefix: AppConfigService.to.dynamicLink,
         // appStoreIdentifier: AppConfigService.to.appStoreIdentifier.toString(),
         // bundleId: AppConfigService.to.bundleId!,
-        // socialTitle: invitationCardTitle,
-        // socialDescription: invitationCardMessage,
-        // socialImage: AppConfigService.to.invitationImage,
+
         // shortLink: false,
       );
-      print('link.toString() 1 ${link.toString()}');
+
+      // skip
+      if (link == null) return;
+
       // store invitations on cloud
       await _storeInvitations(
         ShareInvitation(
@@ -120,9 +125,9 @@ class ShareableService extends GetxService {
           role: role,
         ),
       );
-      print('link.toString() 2 ${link.toString()}');
+
       // open share dialog
-      await ShareHelper.string(link.toString());
+      await ShareHelper.string(link);
     } catch (e, x) {
       print('ERROR $e $x');
     }
