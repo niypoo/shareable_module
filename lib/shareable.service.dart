@@ -298,8 +298,8 @@ print('_isInvitationValid (3) $databaseInvitationInvalid ');
       return true;
     }
     // CATCH Error MEAN FALSE
-    catch (e) {
-      print('_isInvitationValid (4) $e ');
+    catch (e ,r) {
+      print('_isInvitationValid (4) $e $r');
       return false;
     }
   }
