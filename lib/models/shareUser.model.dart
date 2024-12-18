@@ -89,7 +89,7 @@ class ShareUser implements BaseUser {
             : DateTime.now().toIso8601String(),
       };
 
-  static List<ShareUser> fromMap(Map<String, dynamic>? data) {
+  static List<ShareUser> fromMap(List<dynamic>? data) {
     // define list t return back
     final List<ShareUser> payloadList = [];
 
@@ -97,7 +97,7 @@ class ShareUser implements BaseUser {
     if (data == null || data.isEmpty) return payloadList;
 
     // iterable
-    for (final friend in data.values) {
+    for (final friend in data) {
       payloadList.add(ShareUser.fromData(friend));
     }
 
