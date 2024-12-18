@@ -183,6 +183,7 @@ class ShareableService extends GetxService {
       //loading off
       LoadingService.to.off();
       SnackbarHelper.warning(
+        icon: UniconsLine.share,
         title: 'Sharable.You are already sharing!'.tr,
         body: 'Sharable.It seems that you are already on the list of sharers for this item or you are the owner of the item.'.tr);
       return;
