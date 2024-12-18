@@ -154,7 +154,7 @@ class ShareableService extends GetxService {
 
   // handle shareable invitation link ,
   // then handle the invitation.
-  Future<void> handleInvitation(Map<String, String> params) async {
+  Future<void> handleInvitation(Map<String, dynamic> params) async {
     // Define Properties
     final dynamic invitationId = params['invitationId'];
     final dynamic objectId = params['objectId'];
@@ -450,7 +450,7 @@ class ShareableService extends GetxService {
   }
 
   void shareableInviteRouteCatch(
-      {required String path, Map<String, String>? params}) async {
+      {required String path, Map<String, dynamic>? params}) async {
     // handle SHARABLE function
     if (path == '/shareable' && params != null) {
       await handleInvitation(params);
