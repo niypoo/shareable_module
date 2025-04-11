@@ -21,7 +21,7 @@ class ShareableUsersListLandscapeView
           children: [
             FlyAppBar(
               title: 'Sharing'.tr,
-              titleSpacing: 0.0,
+              // titleSpacing: 0.0,
               actions: const [
                 CreateNewInvitationAppBarButton(),
               ],

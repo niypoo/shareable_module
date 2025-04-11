@@ -60,10 +60,10 @@ class ShareableUsersListController extends GetxController
   FocusNode searchFocusNode = FocusNode();
 
   @override
-  void onFieldSubmitted(String value) {
+  void onFieldSubmitted(String? value) {
     sharingUsers = sharingUsers
         .where((user) =>
-            user.getDisplayName.toLowerCase().contains(value.toLowerCase()))
+            user.getDisplayName.toLowerCase().contains(value!.toLowerCase()))
         .toList();
     update();
   }
@@ -112,5 +112,9 @@ class ShareableUsersListController extends GetxController
 
     print('sharingUsers ${sharingUsers.length}');
     update();
+  }
+  
+  @override
+  void onFieldChanges(String? value) {
   }
 }

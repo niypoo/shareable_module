@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fly_ui/extensions/responsive.extension.dart';
 import 'package:fly_ui/views/widgets/images/image.widget.dart';
-import 'package:fly_ui/views/widgets/listTile/tile.widget.dart';
+import 'package:fly_ui/views/widgets/listTile/listTile.widget.dart';
 import 'package:fly_ui/views/widgets/pageMessage.widget.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/shareableUsersList/shareableUsersList.controller.dart';
@@ -50,10 +50,10 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                       url: user.photoUrl,
                     ),
                     title: user.getDisplayName,
-                    subtitle: controller.isOwner(user.id)
+                    value: controller.isOwner(user.id)
                         ? 'Sharable.owner'.tr
                         : 'Sharable.${user.role.name}'.tr,
-                    value: !controller.isOwner(user.id) &&
+                    trailing: !controller.isOwner(user.id) &&
                             controller.isCurrentUserOwner
                         ? IconButton(
                             icon: const Icon(UniconsLine.ellipsis_v),

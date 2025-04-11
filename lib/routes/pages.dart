@@ -12,14 +12,14 @@ class ShareablePages {
       name: ShareableRoutesNames.shareableUserList,
       page: () => const ShareableUsersListView(),
       binding: ShareableUsersListBinding(),
-      customTransition: FlyRouteTransition(),
+      customTransition: FlySharedAxisTransition(),
     ),
 
         GetPage(
       name: ShareableRoutesNames.shareableUserRole,
       page: () => const ShareableUserRoleView(),
       binding: ShareableUserRoleBinding(),
-      customTransition: FlyRouteTransition(),
+      customTransition: FlySharedAxisTransition(),
     ),
   ];
 }

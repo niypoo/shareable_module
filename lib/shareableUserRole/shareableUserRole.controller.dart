@@ -26,15 +26,7 @@ class ShareableUserRoleController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   // ON OPTIONS CHANGES
   onRoleChange(Role role) {

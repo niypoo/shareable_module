@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fly_ui/extensions/responsive.extension.dart';
 import 'package:fly_ui/views/widgets/buttons/elevatedButton.widget.dart';
 import 'package:fly_ui/views/widgets/listTile/tileRadio.widget.dart';
-import 'package:fly_ui/views/widgets/multiStepPageView/widgets/multiStepHint.widget.dart';
+import 'package:fly_ui/views/widgets/stepper/widgets/stepperHint.widget.dart';
 import 'package:get/get.dart';
 import 'package:shareable_module/shareableUserRole/shareableUserRole.controller.dart';
 
@@ -17,8 +17,8 @@ class RolesListWidget extends GetView<ShareableUserRoleController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // HINT
-        FlyMultiStepHint(
-          hint:
+        FlyStepperHint(
+          subHint:
               'Sharable.Choose the user role and specify the permissions it has.'
                   .tr,
         ),
@@ -31,9 +31,9 @@ class RolesListWidget extends GetView<ShareableUserRoleController> {
                   (e) => FlyRadioListTile(
                     value: e.name,
                     title: 'Sharable.${e.name}'.tr,
-                    valueGroup: controller.userRole.name,
-                    hint: 'Sharable.${e.name} role hint'.tr,
-                    onTap: (_) => controller.onRoleChange(e),
+                    selectedValue: controller.userRole.name,
+                    subtitle: 'Sharable.${e.name} role hint'.tr,
+                    onChanged: (_) => controller.onRoleChange(e),
                   ),
                 )
                 .toList(),
