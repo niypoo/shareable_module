@@ -50,8 +50,8 @@ class ShareableUsersListPortraitView
           pinned: false,
           floating: true,
           delegate: FlySliverContainer(
-            initMaxExtent: 55.sp,
-            initMinExtent: 55.sp,
+            initMaxExtent: 50.sp,
+            initMinExtent: 50.sp,
             child: (bool isCollapse, double shrinkOffset) => FlySearchInput(
               controller: controller,
               placeholder: 'Search'.tr,

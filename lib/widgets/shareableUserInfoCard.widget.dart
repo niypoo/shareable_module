@@ -30,7 +30,7 @@ class ShareableUserInfoCard extends StatelessWidget {
               FlyImage(
                 url: shareUser.photoUrl,
                 width: 40.sp,
-                height: 55.sp,
+                height: 40.sp,
               ),
               SizedBox(width: 10.sp),
               Flexible(
