@@ -47,18 +47,14 @@ class ShareableUsersListPortraitView
           floating: false,
         ),
         SliverPersistentHeader(
-          pinned: true,
-          floating: false,
+          pinned: false,
+          floating: true,
           delegate: FlySliverContainer(
-            initMaxExtent: 45.sp,
-            initMinExtent: 45.sp,
-            child: (bool isCollapse, double shrinkOffset) => Container(
-              height: 45.sp,
-              color: Get.theme.scaffoldBackgroundColor,
-              child: FlySearchInput(
-                controller: controller,
-                placeholder: 'Search'.tr,
-              ),
+            initMaxExtent: 55.sp,
+            initMinExtent: 55.sp,
+            child: (bool isCollapse, double shrinkOffset) => FlySearchInput(
+              controller: controller,
+              placeholder: 'Search'.tr,
             ),
           ),
         ),

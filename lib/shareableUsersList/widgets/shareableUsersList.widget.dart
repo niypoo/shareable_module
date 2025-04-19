@@ -59,7 +59,7 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                             icon: const Icon(UniconsLine.ellipsis_v),
                             onPressed: () => controller.onMoreOptionTap(user),
                           )
-                        : const SizedBox.shrink(),
+                        : null,
                   ),
                 )
                 .toList(),
