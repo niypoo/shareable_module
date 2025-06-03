@@ -47,7 +47,7 @@ class ShareableUsersListWidget extends GetView<ShareableUsersListController> {
                     outline: true,
                     leading: FlyImage(
                       height: 35.sp,
-                      width: 25.sp,
+                      width: 35.sp,
                       url: user.photoUrl,
                     ),
                     title: user.getDisplayName,
